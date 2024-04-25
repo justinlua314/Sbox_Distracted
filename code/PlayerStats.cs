@@ -77,6 +77,7 @@ public sealed class PlayerStats : Component {
 		}
 
 		Stats[stat] = Math.Min( Stats[stat] + amount, 100f);
+		StatDeath[stat] = 10f;
 
 		if (Stats[stat] == 100f) { OverUse( stat, amount ); }
 	}

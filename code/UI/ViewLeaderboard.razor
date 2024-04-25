@@ -34,6 +34,7 @@
 	}
 
 	string GetLeaderboardName(int entry) {
+		if (Leaderboard == null || Leaderboard.Entries == null) { return "Nobody"; }
 		if (entry > Leaderboard.MaxEntries || entry >= Leaderboard.Entries.Count() || entry < 0) {
 			return "Nobody";
 		}
@@ -45,6 +46,7 @@
 	}
 
 	string GetLeaderboardScore(int entry) {
+		if (Leaderboard == null || Leaderboard.Entries == null) { return "0"; }
 		if (entry > Leaderboard.MaxEntries || entry >= Leaderboard.Entries.Count() || entry < 0) {
 			return "0";
 		}

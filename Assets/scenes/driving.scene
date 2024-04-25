@@ -83,7 +83,7 @@
           "BodyGroups": 18446744073709551615,
           "Model": "models/npc_car.vmdl",
           "RenderType": "On",
-          "Tint": "1,1,1,1"
+          "Tint": "0.40202,0.05581,1,1"
         },
         {
           "__type": "Sandbox.BoxCollider",
@@ -147,9 +147,9 @@
         {
           "__type": "Sandbox.BoxCollider",
           "__guid": "acc986fa-aab1-43cc-a97e-83b50c995f0f",
-          "Center": "0.4,-16.90002,25.80006",
+          "Center": "0,-14.7,25.80006",
           "IsTrigger": true,
-          "Scale": "130.1001,125.6993,78.6998",
+          "Scale": "95.70039,107.9994,78.6998",
           "Static": false
         },
         {
@@ -678,6 +678,30 @@
               ]
             }
           ]
+        },
+        {
+          "__guid": "d268470a-6c89-4019-b14c-0c863f2d2f97",
+          "Name": "Steering Wheel",
+          "Position": "34.65696,0.6629294,25.89914",
+          "Rotation": "-0.697573,0.1157238,0.1157238,0.6975729",
+          "Scale": "0.5,0.5,0.5",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "466ba958-6713-4c23-a1e2-e208ac8a92fb",
+              "BodyGroups": 18446744073709551615,
+              "MaterialOverride": "materials/car-console.vmat",
+              "Model": "models/steer_wheel.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SteeringWheel",
+              "__guid": "4010352d-1ac9-4b70-b474-509b0814bd2d"
+            }
+          ]
         }
       ]
     },
@@ -891,7 +915,7 @@
   },
   "Title": "driving",
   "Description": "",
-  "LastSaved": "2024-04-25T06:47:11.9666132-04:00",
+  "LastSaved": "2024-04-25T18:37:44.615937-04:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

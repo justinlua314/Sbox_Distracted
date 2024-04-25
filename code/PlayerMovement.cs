@@ -11,13 +11,13 @@ public sealed class PlayerMovement : Component {
 	/// <summary>
 	/// The speed at which the car turns when the steering wheel is turned
 	/// </summary>
-	[Property] float TurnSpeed { get; set; } = 1f;
+	[Property] public float TurnSpeed { get; set; } = 1f;
 
 
 	/// <summary>
 	/// Max Speed that car can drive
 	/// </summary>
-	[Property] float MaxSpeed { get; set; } = 150f;
+	[Property] public float MaxSpeed { get; set; } = 150f;
 
 
 	/// <summary>
@@ -48,7 +48,7 @@ public sealed class PlayerMovement : Component {
 	/// <summary>
 	/// How much does the steering jiggle around when the emergency brake is pulled
 	/// </summary>
-	[Property] float ABSPunchFactor { get; set; } = 1f;
+	[Property] public float ABSPunchFactor { get; set; } = 1f;
 
 
 	// Stats is referenced to control Score while driving

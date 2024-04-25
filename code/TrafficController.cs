@@ -45,7 +45,7 @@ public sealed class TrafficController : Component {
 			18432f,
 			ValidYPositions[Rnd.Next(0, ValidYPositions.Count)],
 			// 260f,
-			50f
+			18f
 		);
 
 		targetTransform.Position = targetPosition;

@@ -1,5 +1,3 @@
-using Sandbox;
-
 public sealed class CopScript : Component {
 	/// <summary>
 	/// How often the cop lights flash
