@@ -1,0 +1,26 @@
+{
+  "publish": {
+    "Allowed": true,
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "burger_full",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "burger_full",
+      "Tags": null,
+      "Schema": 0,
+      "HasAssets": false,
+      "AssetsPath": null,
+      "Resources": null,
+      "HasCode": false,
+      "CodePath": null,
+      "PackageReferences": [],
+      "EditorReferences": [
+        "tiowevolve.dev_orange_03#52991"
+      ],
+      "Metadata": {
+        "SingleAssetSource": "models/raw/burger_full.vmap"
+      }
+    }
+  }
+}

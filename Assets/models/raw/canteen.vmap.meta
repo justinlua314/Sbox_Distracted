@@ -1,0 +1,20 @@
+{
+  "publish": {
+    "Allowed": true,
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "canteen",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "canteen",
+      "Tags": null,
+      "Schema": 0,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": [],
+      "Metadata": {
+        "SingleAssetSource": "models/raw/canteen.vmap"
+      }
+    }
+  }
+}

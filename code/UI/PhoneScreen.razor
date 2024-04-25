@@ -1,0 +1,64 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<img src=@CurGifPath/>
+</root>
+
+@code {
+	List<string> Gifs = ["yap", "dance"];
+
+	string GifPath(int index) { return $"materials/gifs/{Gifs[index]}.gif"; }
+
+	public int GifIndex = 0;
+	string CurGifPath;
+
+
+	/// <summary>
+	/// Player Stats are referenced to Nourish boredom stat
+	/// </summary>
+	[Property] PlayerStats Stats { get; set; }
+
+
+	/// <summary>
+	/// How long a video is entertaining before it needs to be swiped
+	/// </summary>
+	[Property] float ValueInVideos { get; set; } = 1f;
+
+
+	/// <summary>
+	/// How Entertaining (strong) videos are
+	/// </summary>
+	[Property] float EntertainmentStrength { get; set; } = 1f;
+
+	float ValueLeft = 0f;
+
+	protected override void OnStart() {
+		CurGifPath = GifPath(GifIndex);
+	}
+
+	public void NextGif() {
+		GifIndex++;
+
+		if (GifIndex == Gifs.Count) { GifIndex = 0; }
+
+		CurGifPath = GifPath(GifIndex);
+		ValueLeft = 0f;
+	}
+
+	protected override void OnFixedUpdate() {
+		if (ValueLeft < ValueInVideos) {
+			ValueLeft += Time.Delta;
+
+			if (Stats != null) {
+				Stats.Nourish("boredom", EntertainmentStrength);
+			}
+		}
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( GifIndex );
+}

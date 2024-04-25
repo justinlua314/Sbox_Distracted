@@ -1,0 +1,20 @@
+{
+  "publish": {
+    "Allowed": true,
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "water_bottle",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "water_bottle",
+      "Tags": null,
+      "Schema": 0,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": [],
+      "Metadata": {
+        "SingleAssetSource": "models/raw/water_bottle.vmap"
+      }
+    }
+  }
+}

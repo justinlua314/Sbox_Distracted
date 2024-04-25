@@ -1,0 +1,898 @@
+{
+  "__guid": "69f1c592-1bf4-43f9-8a84-96ef7cad235e",
+  "GameObjects": [
+    {
+      "__guid": "ca69a2d3-eee9-4696-a7c9-fd1845933f55",
+      "Name": "Sun",
+      "Position": "0,0,302.2996",
+      "Rotation": "-0.2459842,0.5938582,0.2931525,0.7077327",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "abe148a6-960f-4b4b-ac1c-4bc85340fdc1",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0.05882,0.07451,0.08235,1"
+        }
+      ]
+    },
+    {
+      "__guid": "ec88e613-f62d-4c19-a9ed-34224e70e196",
+      "Name": "Master Road Segment",
+      "Position": "0,0,-200",
+      "Rotation": "0,0,0.7071068,0.7071068",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "b011ab3d-8fae-42dd-aa16-0676bca6ed47",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/road_seg.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "120f2e11-3d84-463f-8830-ac7e05e42d77",
+      "Name": "Cloned Road Segments",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "RoadGeneration",
+          "__guid": "a442e6c3-6320-4231-a141-9342b297dc30",
+          "MasterRoadSegment": {
+            "_type": "gameobject",
+            "go": "ec88e613-f62d-4c19-a9ed-34224e70e196"
+          },
+          "PlyMovement": {
+            "_type": "component",
+            "component_id": "495908fa-6028-464d-8ea3-35833523c3d8",
+            "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+            "component_type": "PlayerMovement"
+          },
+          "RoadLength": 18,
+          "Traffic": {
+            "_type": "component",
+            "component_id": "ffbafe4c-3f4f-495b-a8ac-7c5920004905",
+            "go": "68323029-6bf5-4437-95ce-5ed023358257",
+            "component_type": "TrafficController"
+          }
+        }
+      ]
+    },
+    {
+      "__guid": "732d1f74-eb4d-4fdc-b5aa-3c3f68f96cc6",
+      "Name": "Master Traffic Car",
+      "Position": "313.2498,-984.3324,-500",
+      "Rotation": "0,0,0.7071067,0.7071068",
+      "Tags": "traffic",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "47278bf2-e4ff-4fbf-a536-b590e8001782",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/npc_car.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "7e0d2eae-ad01-4327-aa7b-fd8a5b114e32",
+          "Center": "0.4,8.199977,8.499998",
+          "IsTrigger": true,
+          "Scale": "143.0009,303.8015,111.1993",
+          "Static": false
+        },
+        {
+          "__type": "CarScript",
+          "__guid": "4ee8a799-78f5-4d7f-aaf2-79feeee4febb",
+          "Stats": {
+            "_type": "component",
+            "component_id": "5f8ca7c1-3392-4fa6-9a0e-fafe0c6c4467",
+            "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+            "component_type": "PlayerStats"
+          }
+        }
+      ]
+    },
+    {
+      "__guid": "68323029-6bf5-4437-95ce-5ed023358257",
+      "Name": "Traffic",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "TrafficController",
+          "__guid": "ffbafe4c-3f4f-495b-a8ac-7c5920004905",
+          "MasterCar": {
+            "_type": "gameobject",
+            "go": "732d1f74-eb4d-4fdc-b5aa-3c3f68f96cc6"
+          },
+          "PlyMove": {
+            "_type": "component",
+            "component_id": "495908fa-6028-464d-8ea3-35833523c3d8",
+            "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+            "component_type": "PlayerMovement"
+          }
+        }
+      ]
+    },
+    {
+      "__guid": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+      "Name": "Player",
+      "Position": "0,0,50",
+      "Rotation": "0,0,0.7071069,0.707107",
+      "Tags": "player",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "aa56a743-d181-49d6-a347-f37a5dd9a60a",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/player_car.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "acc986fa-aab1-43cc-a97e-83b50c995f0f",
+          "Center": "0.4,-16.90002,25.80006",
+          "IsTrigger": true,
+          "Scale": "130.1001,125.6993,78.6998",
+          "Static": false
+        },
+        {
+          "__type": "PlayerMovement",
+          "__guid": "495908fa-6028-464d-8ea3-35833523c3d8",
+          "ABSPunchFactor": 1,
+          "Acceleration": 0.5,
+          "BrakePower": 0.4,
+          "EmergencyBrakePower": 1,
+          "Friction": 0.05,
+          "MaxSpeed": 250,
+          "TurnPower": 300,
+          "TurnSpeed": 0.75
+        },
+        {
+          "__type": "PlayerFacing",
+          "__guid": "5a004551-2d3e-4d03-adbb-c27d26bc1f66",
+          "LookSpeed": 10,
+          "Screen": {
+            "_type": "component",
+            "component_id": "11e543ae-1074-473b-aa86-350784e709db",
+            "go": "a496154a-2a8a-4fac-9002-5f95b3a1f8eb",
+            "component_type": "PhoneScreen"
+          },
+          "SideLook": {
+            "UniformScale": 1,
+            "Position": "33.699,32.603,38.33",
+            "Scale": "1,1,1",
+            "Rotation": "0.1260786,0.03378267,-0.9576622,0.2566049"
+          }
+        },
+        {
+          "__type": "PlayerInventory",
+          "__guid": "59f7733f-1319-4595-913b-ad1617fa72ff"
+        },
+        {
+          "__type": "PlayerStats",
+          "__guid": "5f8ca7c1-3392-4fa6-9a0e-fafe0c6c4467",
+          "Cops": {
+            "_type": "component",
+            "component_id": "3efdf249-0ded-49f4-aef6-c2bfab9b1d52",
+            "go": "b8185f83-4519-448d-8e65-f264c185843b",
+            "component_type": "CopScript"
+          },
+          "GameOverScreen": {
+            "_type": "gameobject",
+            "go": "849a3acd-c4e5-4ed1-9c56-c3e39611a292"
+          },
+          "StatDecaySpeed": 0.007
+        },
+        {
+          "__type": "DrunkScript",
+          "__guid": "9a1c0ad0-2156-436d-9493-3e5ccfef0a52",
+          "BlurSpeed": 0.001,
+          "Intensity": 0.5,
+          "SoberSpeed": 0.01
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "d0b16eae-cb3a-42df-94e2-35872af44307",
+          "Name": "Main Camera",
+          "Position": "33.69874,32.60275,38.33033",
+          "Rotation": "0,0,-0.7071068,0.7071068",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.CameraComponent",
+              "__guid": "65f72e7d-fef2-430c-b701-19115acda12f",
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 80,
+              "IsMainCamera": true,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "Viewport": "0,0,1,1",
+              "ZFar": 20000,
+              "ZNear": 10
+            },
+            {
+              "__type": "PlayerFacing",
+              "__guid": "747d45c7-b325-4c7b-9783-2aca7dbb5fef",
+              "LookSpeed": 4,
+              "SideLook": {
+                "UniformScale": 1,
+                "Position": "33.699,32.603,38.33",
+                "Scale": "1,1,1",
+                "Rotation": "0.1260786,0.03378267,-0.9576622,0.2566049"
+              }
+            },
+            {
+              "__type": "Sandbox.Sharpen",
+              "__guid": "e2389d1f-af9d-426f-a5a3-a7137793a8d3",
+              "Scale": 0
+            },
+            {
+              "__type": "Sandbox.Blur",
+              "__guid": "23821058-3a40-4f81-967b-361e5bba8040",
+              "Size": 0
+            }
+          ]
+        },
+        {
+          "__guid": "6b118720-a102-43ea-92e1-26f1473f42e8",
+          "Name": "Phone",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Children": [
+            {
+              "__guid": "075534b8-839e-4b6a-9644-92ace98e2fff",
+              "Name": "Holder",
+              "Position": "13.08502,-35.10497,26.76087",
+              "Scale": "2,1.5,1.5",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "2a4c70cf-5f50-4b28-a780-bbdf797fa766",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/phone_holder.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "__guid": "14afbc0e-f40b-46e9-a0dc-d73c3218b934",
+              "Name": "Phone",
+              "Position": "13.20765,-19.07502,36.14749",
+              "Scale": "0.45,0.25,0.4",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "08ca503a-5ef2-4a27-95f5-634411ec9272",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/phone.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                }
+              ],
+              "Children": [
+                {
+                  "__guid": "a496154a-2a8a-4fac-9002-5f95b3a1f8eb",
+                  "Name": "Phone Screen",
+                  "Position": "-0.0009319197,3.92066,0",
+                  "Rotation": "0,0,0.7071066,0.7071065",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.WorldPanel",
+                      "__guid": "c3e977c7-8ac4-40cd-9942-7f89202abb1b",
+                      "HorizontalAlign": "Center",
+                      "LookAtCamera": false,
+                      "PanelSize": "525.2971,560",
+                      "RenderScale": 1,
+                      "VerticalAlign": "Center"
+                    },
+                    {
+                      "__type": "PhoneScreen",
+                      "__guid": "11e543ae-1074-473b-aa86-350784e709db",
+                      "EntertainmentStrength": 0.05,
+                      "Stats": {
+                        "_type": "component",
+                        "component_id": "5f8ca7c1-3392-4fa6-9a0e-fafe0c6c4467",
+                        "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+                        "component_type": "PlayerStats"
+                      },
+                      "ValueInVideos": 5
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "de0872e6-a03f-40d9-89d5-40920b41ffd9",
+          "Name": "Items",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Children": [
+            {
+              "__guid": "44c54b6f-9d12-41c6-922c-42943ed21d08",
+              "Name": "Vape",
+              "Position": "-6.16786,-20.28135,6.112408",
+              "Scale": "0.2,0.2,0.4",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "876173b4-b085-4235-894e-7dbfc1134a23",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/vape.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "GrabItem",
+                  "__guid": "cfd41a29-695e-468a-93a9-1804396d1bae",
+                  "GrabAction": "reload",
+                  "GrabSpeed": 4,
+                  "GrabTarget": {
+                    "_type": "gameobject",
+                    "go": "5633442d-0713-4d0e-80e9-ee4ac1e3f91d"
+                  }
+                },
+                {
+                  "__type": "UseItem",
+                  "__guid": "f15f160e-17b9-4188-a89f-d5772163b713",
+                  "GrabTarget": {
+                    "_type": "gameobject",
+                    "go": "5633442d-0713-4d0e-80e9-ee4ac1e3f91d"
+                  },
+                  "HoldTime": 3,
+                  "PickupSpeed": 2,
+                  "StatEffected": "buzz",
+                  "StatStrength": 0.5,
+                  "UseOff": {
+                    "UniformScale": 1,
+                    "Position": "29.366,-1.763,23.735",
+                    "Scale": "1,1,1",
+                    "Rotation": "0,0,0,1"
+                  },
+                  "UseOn": {
+                    "UniformScale": 1,
+                    "Position": "33.422,12.782,31.202",
+                    "Scale": "1,1,1",
+                    "Rotation": "-0.6896385,0,0,0.7241538"
+                  },
+                  "UseSpeed": 4
+                }
+              ]
+            },
+            {
+              "__guid": "fd25d789-cd07-4926-bce6-dd547ce12cf5",
+              "Name": "Water",
+              "Position": "8.242465,-19.93484,3.724537",
+              "Scale": "0.8,0.8,0.8",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "77d5d0af-79bb-4022-b0bc-fbeec2b5f2bf",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/water_bottle.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "GrabItem",
+                  "__guid": "b2017239-56a7-43c9-a5be-4f110cb59530",
+                  "GrabAction": "use",
+                  "GrabSpeed": 4,
+                  "GrabTarget": {
+                    "_type": "gameobject",
+                    "go": "5633442d-0713-4d0e-80e9-ee4ac1e3f91d"
+                  }
+                },
+                {
+                  "__type": "UseItem",
+                  "__guid": "b140f0c9-d0ed-46bf-950a-096321781817",
+                  "GrabTarget": {
+                    "_type": "gameobject",
+                    "go": "5633442d-0713-4d0e-80e9-ee4ac1e3f91d"
+                  },
+                  "HoldTime": 2,
+                  "PickupSpeed": 2,
+                  "StatEffected": "thirst",
+                  "StatStrength": 0.25,
+                  "UseOff": {
+                    "UniformScale": 1,
+                    "Position": "28.393,-1.478,13.792",
+                    "Scale": "1,1,1",
+                    "Rotation": "0,0,0,1"
+                  },
+                  "UseOn": {
+                    "UniformScale": 1,
+                    "Position": "35.183,7.314,34.105",
+                    "Scale": "1,1,1",
+                    "Rotation": "-0.7933533,0,0,0.6087614"
+                  },
+                  "UseSpeed": 4
+                }
+              ]
+            },
+            {
+              "__guid": "f9d30cf4-dddb-4bd2-91ad-6284190161c9",
+              "Name": "Burger",
+              "Position": "-20.36406,10.45931,0.4099274",
+              "Scale": "0.05,0.05,0.05",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "6e2dda24-e82d-41ad-b869-c7fa49c9ac67",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/burger_full.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "GrabItem",
+                  "__guid": "e5789970-b7fb-4146-bed2-d002256d0487",
+                  "GrabAction": "attack1",
+                  "GrabSpeed": 4,
+                  "GrabTarget": {
+                    "_type": "gameobject",
+                    "go": "5633442d-0713-4d0e-80e9-ee4ac1e3f91d"
+                  }
+                },
+                {
+                  "__type": "UseItem",
+                  "__guid": "41862c0d-09fb-499e-b55d-7cb450cd8fdd",
+                  "GrabTarget": {
+                    "_type": "gameobject",
+                    "go": "5633442d-0713-4d0e-80e9-ee4ac1e3f91d"
+                  },
+                  "HoldTime": 0.1,
+                  "PickupSpeed": 2,
+                  "StatEffected": "hunger",
+                  "StatStrength": 0.5,
+                  "UseOff": {
+                    "UniformScale": 1,
+                    "Position": "34.178,16.891,29.038",
+                    "Scale": "1,1,1",
+                    "Rotation": "0,0,0,1"
+                  },
+                  "UseOn": {
+                    "UniformScale": 1,
+                    "Position": "34.178,16.891,32.527",
+                    "Scale": "1,1,1",
+                    "Rotation": "0,0,0,1"
+                  },
+                  "UseSpeed": 1
+                }
+              ]
+            },
+            {
+              "__guid": "9a704ee3-bd91-47c0-8f3d-af53a043db0b",
+              "Name": "Canteen",
+              "Position": "-59.12122,27.34291,3.712936",
+              "Rotation": "0.1830128,-0.1830126,-0.6830128,0.6830124",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "72542e86-b46e-4930-af1e-2e8972a087e9",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/canteen.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "GrabItem",
+                  "__guid": "f551cbcd-176e-4b06-9c0c-e5cd2e4465f8",
+                  "GrabAction": "attack2",
+                  "GrabSpeed": 4,
+                  "GrabTarget": {
+                    "_type": "gameobject",
+                    "go": "5633442d-0713-4d0e-80e9-ee4ac1e3f91d"
+                  }
+                },
+                {
+                  "__type": "UseItem",
+                  "__guid": "4fec3d43-edb8-4dd0-bae5-199be230e3bb",
+                  "GrabTarget": {
+                    "_type": "gameobject",
+                    "go": "5633442d-0713-4d0e-80e9-ee4ac1e3f91d"
+                  },
+                  "HoldTime": 2.5,
+                  "PickupSpeed": 2,
+                  "StatEffected": "drinking",
+                  "StatStrength": 0.1,
+                  "UseOff": {
+                    "UniformScale": 1,
+                    "Position": "26.676,1.757,24.657",
+                    "Scale": "1,1,1",
+                    "Rotation": "0,0,0,1"
+                  },
+                  "UseOn": {
+                    "UniformScale": 1,
+                    "Position": "34.639,14.219,35.251",
+                    "Scale": "1,1,1",
+                    "Rotation": "-0.8660254,-0,0,0.5"
+                  },
+                  "UseSpeed": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "80ee1ce5-e69d-4b60-8af3-d0e213503420",
+          "Name": "AnimTargets",
+          "Position": "0,0,0",
+          "Tags": "anim_targets",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Children": [
+            {
+              "__guid": "5633442d-0713-4d0e-80e9-ee4ac1e3f91d",
+              "Name": "GrabTarget",
+              "Position": "39.14131,39.05932,21.15752",
+              "Tags": "grab_target",
+              "Enabled": true,
+              "NetworkMode": 2
+            }
+          ]
+        },
+        {
+          "__guid": "8f3e41ee-e9ca-4557-93a2-125dbe31e4c5",
+          "Name": "Hud",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.ScreenPanel",
+              "__guid": "9c5e0c61-ab62-41a5-8c81-c4dc2fe14981",
+              "AutoScreenScale": true,
+              "Opacity": 1,
+              "Scale": 1,
+              "ZIndex": 100
+            },
+            {
+              "__type": "PlayerHud",
+              "__guid": "e99be792-f10d-4a49-a4f5-28f742cbeba4",
+              "Stats": {
+                "_type": "component",
+                "component_id": "5f8ca7c1-3392-4fa6-9a0e-fafe0c6c4467",
+                "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+                "component_type": "PlayerStats"
+              }
+            },
+            {
+              "__type": "StatWarnings",
+              "__guid": "abae994e-ed28-47c5-8fb1-f952fb155505"
+            }
+          ]
+        },
+        {
+          "__guid": "b8185f83-4519-448d-8e65-f264c185843b",
+          "Name": "Cop Lights",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "CopScript",
+              "__guid": "3efdf249-0ded-49f4-aef6-c2bfab9b1d52",
+              "GameOverScreen": {
+                "_type": "gameobject",
+                "go": "849a3acd-c4e5-4ed1-9c56-c3e39611a292"
+              },
+              "LightSpeed": 0.75,
+              "PlyMove": {
+                "_type": "component",
+                "component_id": "495908fa-6028-464d-8ea3-35833523c3d8",
+                "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+                "component_type": "PlayerMovement"
+              }
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "679fafe0-68ba-480a-a2a1-c37e84d0aae3",
+              "Name": "Light Right",
+              "Position": "-62.53471,61.36951,44.64343",
+              "Rotation": "0,0,-0.258819,0.9659257",
+              "Tags": "light_spot,light",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "Sandbox.SpotLight",
+                  "__guid": "27ce2dae-4f57-4790-913c-f418fe0aa3a3",
+                  "__enabled": false,
+                  "Attenuation": 1,
+                  "ConeInner": 15,
+                  "ConeOuter": 39.74,
+                  "FogMode": "Enabled",
+                  "FogStrength": 1,
+                  "LightColor": "0.98605,0.00917,0.00917,1",
+                  "Radius": 210.80042,
+                  "Shadows": true
+                }
+              ]
+            },
+            {
+              "__guid": "156d9ca1-1aa0-490d-905b-7ef7c8ddd811",
+              "Name": "Light Left",
+              "Position": "56.14455,61.3695,44.64343",
+              "Rotation": "0,0,-0.8660252,0.5",
+              "Tags": "light_spot,light",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "Sandbox.SpotLight",
+                  "__guid": "3a19b4ea-965c-4eb9-ac5c-ed50768bda92",
+                  "__enabled": false,
+                  "Attenuation": 1,
+                  "ConeInner": 15,
+                  "ConeOuter": 39.74,
+                  "FogMode": "Enabled",
+                  "FogStrength": 1,
+                  "LightColor": "0.91373,0.98039,1,1",
+                  "Radius": 210.80042,
+                  "Shadows": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "5474a8ce-1749-441c-88a8-0a6581561e09",
+      "Name": "Barriers",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Children": [
+        {
+          "__guid": "e4764540-483f-49d1-8b54-28231b162b43",
+          "Name": "Right Barrier",
+          "Position": "0,-513,106.34",
+          "Rotation": "-0.7071067,0,0,0.7071068",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "7b907554-1ea3-4cd4-93e8-f585080cf8cf",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "350,200",
+              "Static": true
+            },
+            {
+              "__type": "BarrierScript",
+              "__guid": "7c54d8f9-9ff7-48eb-9067-b9b3df50f7b3",
+              "PlyMove": {
+                "_type": "component",
+                "component_id": "495908fa-6028-464d-8ea3-35833523c3d8",
+                "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+                "component_type": "PlayerMovement"
+              },
+              "Pushback": 20,
+              "SpeedTax": 50,
+              "Stats": {
+                "_type": "component",
+                "component_id": "5f8ca7c1-3392-4fa6-9a0e-fafe0c6c4467",
+                "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+                "component_type": "PlayerStats"
+              },
+              "YawChange": 20
+            }
+          ]
+        },
+        {
+          "__guid": "c7bbc509-c8c3-4356-ba5f-424bb173a130",
+          "Name": "Left Barrier",
+          "Position": "0,1020.17,106.34",
+          "Rotation": "-0.0000001192093,-0.7071067,0.7071068,0.0000001192093",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "bd97c604-e420-4408-be11-b8fb03b1ca48",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "350,200",
+              "Static": true
+            },
+            {
+              "__type": "BarrierScript",
+              "__guid": "4c1a8138-7dc3-4b49-9e81-6b21b82d7c25",
+              "PlyMove": {
+                "_type": "component",
+                "component_id": "495908fa-6028-464d-8ea3-35833523c3d8",
+                "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+                "component_type": "PlayerMovement"
+              },
+              "Pushback": -20,
+              "SpeedTax": 50,
+              "Stats": {
+                "_type": "component",
+                "component_id": "5f8ca7c1-3392-4fa6-9a0e-fafe0c6c4467",
+                "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+                "component_type": "PlayerStats"
+              },
+              "YawChange": -20
+            }
+          ]
+        },
+        {
+          "__guid": "c187af12-2c88-421b-9749-22b1292c212d",
+          "Name": "OOBRight",
+          "Position": "0,-698.6916,106.34",
+          "Rotation": "-0.7071067,0,0,0.7071068",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "068995d8-096c-4a17-a094-e6993985ed56",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "350,200",
+              "Static": true
+            },
+            {
+              "__type": "Oobscript",
+              "__guid": "19c06b97-04e9-4bd3-913b-dfa08d286877",
+              "Stats": {
+                "_type": "component",
+                "component_id": "5f8ca7c1-3392-4fa6-9a0e-fafe0c6c4467",
+                "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+                "component_type": "PlayerStats"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "5e35738a-4bea-4cbd-a3d0-4dac3f6b36c5",
+          "Name": "OOBLeft",
+          "Position": "0,1132.251,106.34",
+          "Rotation": "-0.0000001376788,0.7071067,-0.7071068,0.0000001376788",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "85aecd15-334a-4444-b513-52509881dbc0",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "350,200",
+              "Static": true
+            },
+            {
+              "__type": "Oobscript",
+              "__guid": "01135baa-43a2-495b-a156-cdce8cdf8192",
+              "Stats": {
+                "_type": "component",
+                "component_id": "5f8ca7c1-3392-4fa6-9a0e-fafe0c6c4467",
+                "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+                "component_type": "PlayerStats"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "43d76784-590e-45ff-9dde-fca575970671",
+      "Name": "Leaderboard",
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "b2ef0ebd-eea3-4489-899b-03d5c3836b59",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 98
+        },
+        {
+          "__type": "ViewLeaderboard",
+          "__guid": "e41d8bfc-f6f7-41ec-a675-639b4aa32e5a"
+        }
+      ]
+    },
+    {
+      "__guid": "849a3acd-c4e5-4ed1-9c56-c3e39611a292",
+      "Name": "Game Over Screen",
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "84f500a5-dffc-40e1-82a6-295604ab0a0b",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 99
+        },
+        {
+          "__type": "GameOver",
+          "__guid": "f9985689-bc44-4c57-90cd-cacb5d27e617",
+          "Leaderboard": {
+            "_type": "gameobject",
+            "go": "43d76784-590e-45ff-9dde-fca575970671"
+          },
+          "Stats": {
+            "_type": "component",
+            "component_id": "5f8ca7c1-3392-4fa6-9a0e-fafe0c6c4467",
+            "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+            "component_type": "PlayerStats"
+          }
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "driving",
+  "Description": "",
+  "LastSaved": "2024-04-25T06:47:11.9666132-04:00",
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

@@ -1,0 +1,45 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@using System;
+
+<root>
+	<div class="warnings">
+		<div class="hunger-warning @((Hunger != 10f) ? "visible": "")">You will die of Hunger in @Hunger seconds</div>
+		<div class="thirst-warning @((Thirst != 10f) ? "visible": "")">You will die of Thirst in @Thirst seconds</div>
+		<div class="buzz-warning @((Buzz != 10f) ? "visible": "")">You will die of Nic Withdrawl in @Buzz seconds</div>
+		<div class="boredom-warning @((Boredom != 10f) ? "visible": "")">You will die of Boredom in @Boredom seconds</div>
+	</div>
+</root>
+
+@code {
+	// PlayerStats is referenced is show StatDeath stats when they are < 10f
+	PlayerStats Stats;
+
+	double Hunger = 10f, Thirst = 10f, Buzz = 10f, Boredom = 10f;
+
+	string GetHunger() {
+		if (Stats == null) { return "10"; }
+		float value = Stats.StatDeath["hunger"];
+		return $"{value}";
+	}
+
+	protected override void OnStart() {
+		Stats = GameObject.Parent.Components.Get<PlayerStats>();
+	}
+
+	protected override void OnFixedUpdate() {
+		if (Stats == null) { return; }
+
+		Hunger = Math.Round(Convert.ToDouble(Stats.StatDeath["hunger"]), 1);
+		Thirst = Math.Round(Convert.ToDouble(Stats.StatDeath["thirst"]), 1);
+		Buzz = Math.Round(Convert.ToDouble(Stats.StatDeath["buzz"]), 1);
+		Boredom = Math.Round(Convert.ToDouble(Stats.StatDeath["boredom"]), 1);
+	}
+
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine(Hunger + Thirst + Buzz + Boredom);
+}

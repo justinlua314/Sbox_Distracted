@@ -1,0 +1,53 @@
+StatWarnings {
+	position: absolute;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	border-radius: 20px;
+	font-family: Poppins;
+	font-size: 42px;
+	width: 100%;
+
+	.warnings {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-top: 5%;
+	}
+
+	.hunger-warning {
+		color: #4f0d0d;
+		opacity: 0;
+
+		&.visible {
+			opacity: 1;
+		}
+	}
+
+	.thirst-warning {
+		color: #2f5c69;
+		opacity: 0;
+
+		&.visible {
+			opacity: 1;
+		}
+	}
+
+	.buzz-warning {
+		color: #a989c4;
+		opacity: 0;
+
+		&.visible {
+			opacity: 1;
+		}
+	}
+
+	.boredom-warning {
+		color: #590b50;
+		opacity: 0;
+
+		&.visible {
+			opacity: 1;
+		}
+	}
+}

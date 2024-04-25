@@ -1,0 +1,55 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<div class="score">Score: @(Stats.Score / 10)</div>
+
+	<div class="stat-area">
+		<div class="stats">
+			<div class="stat-bar">
+				<div class="hunger" style="width: @(Stats.Percent("hunger"))%;"></div>
+				<div class="stat-label">Hunger</div>
+			</div>
+
+			<div class="stat-bar">
+				<div class="thirst" style="width: @(Stats.Percent("thirst"))%;"></div>
+				<div class="stat-label">Thirst</div>
+			</div>
+
+			<div class="stat-bar">
+				<div class="buzz" style="width: @(Stats.Percent("buzz"))%;"></div>
+				<div class="stat-label">Nic Buzz</div>
+			</div>
+
+			<div class="stat-bar">
+				<div class="boredom" style="width: @(Stats.Percent("boredom"))%;"></div>
+				<div class="stat-label">Boredom</div>
+			</div>
+		</div>
+
+		<div class="health-area">
+			<img class="heart @((Stats.Hearts == 3) ? "visible": "")" src="icons/car.png" />
+			<img class="heart @((Stats.Hearts >= 2) ? "visible": "")" src="icons/car.png" />
+			<img class="heart @((Stats.Hearts >= 1) ? "visible": "")" src="icons/car.png" />
+		</div>
+	</div>
+</root>
+
+@code {
+	/// <summary>
+	/// Stats Component that we are displaying the Stats of
+	/// </summary>
+	[Property] PlayerStats Stats { get; set; }
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine(
+		Stats.Stats["hunger"] +
+		Stats.Stats["thirst"] +
+		Stats.Stats["buzz"] +
+		Stats.Stats["boredom"] +
+		Stats.Score + Stats.Hearts
+	);
+}

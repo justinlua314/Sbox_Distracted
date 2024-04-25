@@ -1,0 +1,24 @@
+{
+  "publish": {
+    "Allowed": true,
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "road_seg",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "road_seg",
+      "Tags": null,
+      "Schema": 0,
+      "HasAssets": false,
+      "AssetsPath": null,
+      "Resources": null,
+      "HasCode": false,
+      "CodePath": null,
+      "PackageReferences": [],
+      "EditorReferences": [],
+      "Metadata": {
+        "SingleAssetSource": "models/raw/road_seg.vmap"
+      }
+    }
+  }
+}

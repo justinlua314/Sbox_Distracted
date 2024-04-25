@@ -1,0 +1,20 @@
+{
+  "publish": {
+    "Allowed": true,
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "phone",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "phone",
+      "Tags": null,
+      "Schema": 0,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": [],
+      "Metadata": {
+        "SingleAssetSource": "models/raw/phone.vmap"
+      }
+    }
+  }
+}

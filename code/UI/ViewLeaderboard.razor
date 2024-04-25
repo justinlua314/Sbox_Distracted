@@ -1,0 +1,69 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<div class="title">Highest Score</div>
+
+	<div class="score-table">
+		<div class="score-row">@GetLeaderboardRow(0)</div>
+		<div class="score-row">@GetLeaderboardRow(1)</div>
+		<div class="score-row">@GetLeaderboardRow(2)</div>
+		<div class="score-row">@GetLeaderboardRow(3)</div>
+		<div class="score-row">@GetLeaderboardRow(4)</div>
+		<div class="score-row">@GetLeaderboardRow(5)</div>
+		<div class="score-row">@GetLeaderboardRow(6)</div>
+		<div class="score-row">@GetLeaderboardRow(7)</div>
+		<div class="score-row">@GetLeaderboardRow(8)</div>
+		<div class="score-row">@GetLeaderboardRow(9)</div>
+	</div>
+
+	<button class="play-again" onclick=@NewGame>Play Again</button>
+</root>
+
+@code {
+	public Sandbox.Services.Leaderboards.Board Leaderboard { get; set; }
+
+	int UpdatePanel = 0;
+
+	public async void UpdateLeaderboard() {
+		Leaderboard = Sandbox.Services.Leaderboards.Get("score");
+		Leaderboard.MaxEntries = 10;
+		await Leaderboard.Refresh();
+		UpdatePanel++;
+	}
+
+	string GetLeaderboardName(int entry) {
+		if (entry > Leaderboard.MaxEntries || entry >= Leaderboard.Entries.Count() || entry < 0) {
+			return "Nobody";
+		}
+
+		var lookup = Leaderboard.Entries[entry];
+		if (lookup.DisplayName == null) { return "Nobody"; }
+
+		return lookup.DisplayName;
+	}
+
+	string GetLeaderboardScore(int entry) {
+		if (entry > Leaderboard.MaxEntries || entry >= Leaderboard.Entries.Count() || entry < 0) {
+			return "0";
+		}
+
+		return $"{Leaderboard.Entries[entry].Value}";
+	}
+
+	string GetLeaderboardRow(int entry) {
+		return $"{entry + 1}. {GetLeaderboardName(entry)}: {GetLeaderboardScore(entry)}";
+	}
+
+	void NewGame() { Scene.LoadFromFile("scenes/driving.scene"); }
+
+	protected override void OnStart() {
+		UpdateLeaderboard();
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( UpdatePanel );
+}

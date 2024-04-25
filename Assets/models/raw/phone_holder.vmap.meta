@@ -1,0 +1,20 @@
+{
+  "publish": {
+    "Allowed": true,
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "phone_holder",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "phone_holder",
+      "Tags": null,
+      "Schema": 0,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": [],
+      "Metadata": {
+        "SingleAssetSource": "models/raw/phone_holder.vmap"
+      }
+    }
+  }
+}

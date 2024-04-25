@@ -1,0 +1,44 @@
+ViewLeaderboard {
+	background-color: #444;
+	align-items: center;
+	font-weight: bold;
+	width: 100%;
+	height: 100%;
+	flex-direction: column;
+	font-family: Poppins;
+	font-size: 48px;
+	pointer-events: all;
+
+	.title {
+		width: 100%;
+		height: 10%;
+		justify-content: center;
+	}
+
+	.score-table {
+		flex-direction: column;
+		height: 80%;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.score-row {
+	}
+
+	.play-again {
+		font-size: 32px;
+		background-color: #ddd;
+		align-items: center;
+		justify-content: center;
+		height: 5%;
+		width: 20%;
+
+		&:hover {
+			background-color: #bbb;
+		}
+
+		&:active {
+			background-color: #999;
+		}
+	}
+}

@@ -1,0 +1,76 @@
+GameOver {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #213330;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	pointer-events: all;
+	font-family: Poppins;
+
+	.game-over {
+		flex-direction: column;
+		height: 100%;
+	}
+
+	.over-message {
+		justify-content: center;
+		font-size: 72px;
+		height: 10%;
+		color: #30080a;
+	}
+
+	.score {
+		justify-content: center;
+		font-size: 32px;
+		color: #13979c;
+	}
+
+	.graphic {
+		height: 65%;
+	}
+
+	.buttons {
+		justify-content: center;
+		align-content: center;
+	}
+
+	.play-again {
+		background-color: #377521;
+		margin: 50px;
+		height: 50px;
+		width: 250px;
+		align-items: center;
+		justify-content: center;
+		font-size: 28px;
+
+		&:hover {
+			background-color: #326320;
+		}
+
+		&:active {
+			background-color: #26421b;
+		}
+	}
+
+	.leaderboards {
+		background-color: #6b2da1;
+		margin: 50px;
+		height: 50px;
+		width: 250px;
+		align-items: center;
+		justify-content: center;
+		font-size: 28px;
+
+		&:hover {
+			background-color: #592a82;
+		}
+
+		&:active {
+			background-color: #43235e;
+		}
+	}
+}

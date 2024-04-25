@@ -1,0 +1,75 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<div class="game-over">
+		<div class="over-message">@Messages[ScreenSelected]</div>
+		<div class="score">Score: @GetScore()</div>
+		<img class="graphic" src="icons/@(Icons[ScreenSelected]).png" />
+		<div class="buttons">
+			<button class="play-again" onclick=@NewGame>Play Again</button>
+			<button class="leaderboards" onclick=@ShowLeaderboard>Leaderboards</button>
+		</div>
+	</div>
+</root>
+
+@code {
+	/// <summary>
+	///	Leaderboard is referenced to Enable the game object when the player clicks the Leaderboard button
+	/// </summary>
+	[Property] GameObject Leaderboard { get; set; }
+
+
+	/// <summary>
+	/// Stats are referenced to show the Player's Score in the Game Over screen
+	/// </summary>
+	[Property] PlayerStats Stats { get; set; }
+
+	List<string> Messages = new() {
+		"You died in a crash",
+		"You were arrested by the police"
+	};
+
+	List<string> Icons = new() {
+		"ded",
+		"arrested"
+	};
+
+	Dictionary<string, int> Screens = new() {
+		{"dead", 0},
+		{"arrested", 1}
+	};
+
+	int ScreenSelected = 0;
+
+	public void SetGameOverScreen(string id) {
+		if (Screens.ContainsKey(id)) {
+			ScreenSelected = Screens[id];
+		}
+	}
+
+	string GetScore() {
+		if (Stats == null) { return "Unknown"; }
+
+		return $"{Stats.Score / 10}";
+	}
+
+	void ShowLeaderboard() {
+		if (Leaderboard == null) { return; }
+
+		ViewLeaderboard component = Leaderboard.Components.Get<ViewLeaderboard>();
+
+		if (component != null) { component.UpdateLeaderboard(); }
+
+		Leaderboard.Enabled = true;
+		GameObject.Enabled = false;
+	}
+
+	void NewGame() { Scene.LoadFromFile("scenes/driving.scene"); }
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( ScreenSelected );
+}
