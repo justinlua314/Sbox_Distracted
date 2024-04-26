@@ -103,7 +103,7 @@ public sealed class PlayerMovement : Component {
 	}
 
 	protected override void OnFixedUpdate() {
-		if (Stats != null && Stats.Hearts <= 0) { return; }
+		if (Stats != null && (Stats.Hearts <= 0 || !Stats.Playing)) { return; }
 
 		// Log.Info( Speed );
 		float speedRatio = Speed / MaxSpeed;

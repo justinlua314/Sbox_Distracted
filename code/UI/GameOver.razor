@@ -44,22 +44,16 @@
 		"boredom"
 	};
 
-	// TODO Clean this nonsense up
-	Dictionary<string, int> Screens = new() {
-		{"dead", 0},
-		{"arrested", 1},
-		{"hunger", 2},
-		{"thirst", 3},
-		{"buzz", 4},
-		{"boredom", 5}
-	};
-
 	int ScreenSelected = 0;
 
-	public void SetGameOverScreen(string id) {
-		if (Screens.ContainsKey(id)) {
-			ScreenSelected = Screens[id];
+	public void EndGame(string screenID) {
+		if (Icons.Contains(screenID)) {
+			ScreenSelected = Icons.IndexOf(screenID);
+		} else {
+			ScreenSelected = 0;
 		}
+
+		Stats.Playing = false;
 	}
 
 	string GetScore() {

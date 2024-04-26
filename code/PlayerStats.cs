@@ -57,6 +57,9 @@ public sealed class PlayerStats : Component {
 	// Player Health
 	public int Hearts = 3;
 
+	// Disabled when GameOver screen is reached
+	public bool Playing = true;
+
 	// Rand used to decrease stat by random offsets
 	Random Rnd = new();
 
@@ -99,8 +102,7 @@ public sealed class PlayerStats : Component {
 
 			if (GameOverScreen != null) {
 				GameOverScreen.Enabled = true;
-				GameOverScreen.Components.Get<GameOver>().SetGameOverScreen("dead");
-				GameObject.Enabled = false;
+				GameOverScreen.Components.Get<GameOver>().EndGame( "ded" );
 			}
 		}
 	}
@@ -108,17 +110,10 @@ public sealed class PlayerStats : Component {
 	protected override void OnStart() {
 		Sharp = Scene.Camera.Components.Get<Sharpen>();
 		Drunk = GameObject.Components.Get<DrunkScript>();
-
-		// Debug - Remove
-		/*
-		GameOverScreen.Enabled = true;
-		GameOverScreen.Components.Get<GameOver>().SetGameOverScreen( "boredom" );
-		GameObject.Enabled = false;
-		*/
 	}
 
 	protected override void OnFixedUpdate() {
-		if (Hearts <= 0) { return; }
+		if (Hearts <= 0 || !Playing) { return; }
 
 		float statOffset;
 
@@ -131,8 +126,7 @@ public sealed class PlayerStats : Component {
 
 				if (StatDeath[stat] == 0f) {
 					GameOverScreen.Enabled = true;
-					GameOverScreen.Components.Get<GameOver>().SetGameOverScreen( stat );
-					GameObject.Enabled = false;
+					GameOverScreen.Components.Get<GameOver>().EndGame(stat);
 				}
 			}
 		}

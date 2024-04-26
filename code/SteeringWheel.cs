@@ -12,7 +12,7 @@ public sealed class SteeringWheel : Component {
 	// Rotate wheel in a way similar to how the car rotates in PlayerMovement
 	void SteerRotate( float delta ) {
 		Angles curang = GameObject.Transform.LocalRotation.Angles();
-		curang.pitch += delta * 4f;
+		curang.pitch = Math.Max(Math.Min( curang.pitch + (delta * 8f), 80f ), -80f);
 
 		GameObject.Transform.LocalRotation = curang.ToRotation();
 	}

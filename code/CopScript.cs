@@ -46,7 +46,7 @@ public sealed class CopScript : Component {
 
 		if (PlyMove != null && PlyMove.Speed <= 0f && GameOverScreen != null) {
 			GameOverScreen.Enabled = true;
-			GameOverScreen.Components.Get<GameOver>().SetGameOverScreen( "arrested" );
+			GameOverScreen.Components.Get<GameOver>().EndGame( "arrested" );
 			Flashing = false;
 		}
 
