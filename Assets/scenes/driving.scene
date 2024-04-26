@@ -6,7 +6,7 @@
       "Name": "Sun",
       "Position": "0,0,302.2996",
       "Rotation": "-0.2459842,0.5938582,0.2931525,0.7077327",
-      "Tags": "light_directional,light",
+      "Tags": "light_directional,light,skybox",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
@@ -18,6 +18,12 @@
           "LightColor": "0.91373,0.98039,1,1",
           "Shadows": true,
           "SkyColor": "0.05882,0.07451,0.08235,1"
+        },
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "c41d8b76-6998-49ab-a0c0-2c9c4edfb75c",
+          "SkyMaterial": "materials/bluecloudskybox.vmat",
+          "Tint": "1,1,1,1"
         }
       ]
     },
@@ -83,7 +89,7 @@
           "BodyGroups": 18446744073709551615,
           "Model": "models/npc_car.vmdl",
           "RenderType": "On",
-          "Tint": "0.40202,0.05581,1,1"
+          "Tint": "1,0,0,1"
         },
         {
           "__type": "Sandbox.BoxCollider",
@@ -231,7 +237,7 @@
               "RenderTags": "",
               "TargetEye": "None",
               "Viewport": "0,0,1,1",
-              "ZFar": 20000,
+              "ZFar": 16000,
               "ZNear": 10
             },
             {
@@ -915,8 +921,10 @@
   },
   "Title": "driving",
   "Description": "",
-  "LastSaved": "2024-04-25T18:37:44.615937-04:00",
+  "LastSaved": "2024-04-25T19:54:45.6761092-04:00",
   "ResourceVersion": 1,
   "__version": 1,
-  "__references": []
+  "__references": [
+    "semxy.bluecloudskybox"
+  ]
 }

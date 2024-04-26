@@ -108,6 +108,13 @@ public sealed class PlayerStats : Component {
 	protected override void OnStart() {
 		Sharp = Scene.Camera.Components.Get<Sharpen>();
 		Drunk = GameObject.Components.Get<DrunkScript>();
+
+		// Debug - Remove
+		/*
+		GameOverScreen.Enabled = true;
+		GameOverScreen.Components.Get<GameOver>().SetGameOverScreen( "boredom" );
+		GameObject.Enabled = false;
+		*/
 	}
 
 	protected override void OnFixedUpdate() {
@@ -123,7 +130,9 @@ public sealed class PlayerStats : Component {
 				StatDeath[stat] = Math.Max( StatDeath[stat] - Time.Delta, 0f );
 
 				if (StatDeath[stat] == 0f) {
-					Log.Info( "Ded" );
+					GameOverScreen.Enabled = true;
+					GameOverScreen.Components.Get<GameOver>().SetGameOverScreen( stat );
+					GameObject.Enabled = false;
 				}
 			}
 		}

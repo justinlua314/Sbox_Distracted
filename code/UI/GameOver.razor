@@ -28,17 +28,30 @@
 
 	List<string> Messages = new() {
 		"You died in a crash",
-		"You were arrested by the police"
+		"You were arrested by the police",
+		"You starved to death",
+		"You died of thirst",
+		"You're tweaking to death",
+		"You fell asleep at the wheel"
 	};
 
 	List<string> Icons = new() {
 		"ded",
-		"arrested"
+		"arrested",
+		"hunger",
+		"thirst",
+		"buzz",
+		"boredom"
 	};
 
+	// TODO Clean this nonsense up
 	Dictionary<string, int> Screens = new() {
 		{"dead", 0},
-		{"arrested", 1}
+		{"arrested", 1},
+		{"hunger", 2},
+		{"thirst", 3},
+		{"buzz", 4},
+		{"boredom", 5}
 	};
 
 	int ScreenSelected = 0;
