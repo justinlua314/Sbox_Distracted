@@ -27,8 +27,13 @@
 	int UpdatePanel = 0;
 
 	public async void UpdateLeaderboard() {
-		Leaderboard = Sandbox.Services.Leaderboards.Get("score");
+		Leaderboard = Sandbox.Services.Leaderboards.Get("score_v2");
 		Leaderboard.MaxEntries = 10;
+		await Leaderboard.Refresh();
+		UpdatePanel++;
+
+		// Update again for good measure
+		await Task.Delay(1000);
 		await Leaderboard.Refresh();
 		UpdatePanel++;
 	}

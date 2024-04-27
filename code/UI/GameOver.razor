@@ -59,6 +59,8 @@
 	int ScreenSelected = 0;
 
 	public void EndGame(string screenID) {
+		Sandbox.Services.Stats.SetValue("score_v2", Stats.Score / 10);
+
 		if (Icons.Contains(screenID)) {
 			ScreenSelected = Icons.IndexOf(screenID);
 		} else {
@@ -80,11 +82,11 @@
 	void ShowLeaderboard() {
 		if (Leaderboard == null) { return; }
 
+		Leaderboard.Enabled = true;
 		ViewLeaderboard component = Leaderboard.Components.Get<ViewLeaderboard>();
 
 		if (component != null) { component.UpdateLeaderboard(); }
 
-		Leaderboard.Enabled = true;
 		GameObject.Enabled = false;
 	}
 

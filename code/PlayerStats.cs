@@ -102,8 +102,6 @@ public sealed class PlayerStats : Component {
 		Hearts--;
 
 		if (Hearts <= 0) {
-			Sandbox.Services.Stats.SetValue( "score", Score / 10 );
-
 			if (GameOverScreen != null) {
 				GameOverScreen.Enabled = true;
 				GameOverScreen.Components.Get<GameOver>().EndGame( "ded" );
