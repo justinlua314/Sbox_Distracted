@@ -164,7 +164,10 @@
           "__guid": "495908fa-6028-464d-8ea3-35833523c3d8",
           "ABSPunchFactor": 1,
           "Acceleration": 0.5,
+          "BrakeActive": "sounds/brake-active.sound",
           "BrakePower": 0.4,
+          "EbrakeActive": "sounds/ebrake-active.sound",
+          "EbrakePull": "sounds/ebrake-pull.sound",
           "EmergencyBrakePower": 1,
           "Friction": 0.05,
           "Gas": "sounds/engine.sound",
@@ -214,7 +217,7 @@
           "__guid": "9a1c0ad0-2156-436d-9493-3e5ccfef0a52",
           "BlurSpeed": 0.001,
           "Intensity": 0.5,
-          "SoberSpeed": 0.01
+          "SoberSpeed": 0.001
         }
       ],
       "Children": [
@@ -386,6 +389,7 @@
                   },
                   "HoldTime": 3,
                   "PickupSpeed": 2,
+                  "StackSounds": false,
                   "StatEffected": "buzz",
                   "StatStrength": 0.5,
                   "UseOff": {
@@ -400,6 +404,7 @@
                     "Scale": "1,1,1",
                     "Rotation": "-0.6896385,0,0,0.7241538"
                   },
+                  "UseSound": "sounds/vape.sound",
                   "UseSpeed": 4
                 }
               ]
@@ -439,6 +444,7 @@
                   },
                   "HoldTime": 2,
                   "PickupSpeed": 2,
+                  "StackSounds": false,
                   "StatEffected": "thirst",
                   "StatStrength": 0.25,
                   "UseOff": {
@@ -453,6 +459,7 @@
                     "Scale": "1,1,1",
                     "Rotation": "-0.7933533,0,0,0.6087614"
                   },
+                  "UseSound": "sounds/drink.sound",
                   "UseSpeed": 4
                 }
               ]
@@ -492,6 +499,7 @@
                   },
                   "HoldTime": 0.1,
                   "PickupSpeed": 2,
+                  "StackSounds": true,
                   "StatEffected": "hunger",
                   "StatStrength": 0.5,
                   "UseOff": {
@@ -506,6 +514,7 @@
                     "Scale": "1,1,1",
                     "Rotation": "0,0,0,1"
                   },
+                  "UseSound": "sounds/eat.sound",
                   "UseSpeed": 1
                 }
               ]
@@ -545,6 +554,7 @@
                   },
                   "HoldTime": 2.5,
                   "PickupSpeed": 2,
+                  "StackSounds": false,
                   "StatEffected": "drinking",
                   "StatStrength": 0.1,
                   "UseOff": {
@@ -559,6 +569,7 @@
                     "Scale": "1,1,1",
                     "Rotation": "-0.8660254,-0,0,0.5"
                   },
+                  "UseSound": "sounds/drink.sound",
                   "UseSpeed": 4
                 }
               ]
@@ -895,6 +906,12 @@
         {
           "__type": "GameOver",
           "__guid": "f9985689-bc44-4c57-90cd-cacb5d27e617",
+          "Cops": {
+            "_type": "component",
+            "component_id": "3efdf249-0ded-49f4-aef6-c2bfab9b1d52",
+            "go": "b8185f83-4519-448d-8e65-f264c185843b",
+            "component_type": "CopScript"
+          },
           "Hitbox": {
             "_type": "component",
             "component_id": "acc986fa-aab1-43cc-a97e-83b50c995f0f",
@@ -938,7 +955,7 @@
   },
   "Title": "driving",
   "Description": "",
-  "LastSaved": "2024-04-26T20:52:25.2337957-04:00",
+  "LastSaved": "2024-04-27T09:31:17.1680766-04:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

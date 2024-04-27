@@ -50,6 +50,20 @@ public sealed class UseItem : Component {
 	[Property] float StatStrength { get; set; } = 1f;
 
 
+	/// <summary>
+	/// Sound that plays when item is held at Apex
+	/// </summary>
+	[Property] SoundEvent UseSound { get; set; }
+
+
+	/// <summary>
+	/// Should UseSound play to completion even if Use is not at Apex?
+	/// </summary>
+	[Property] bool StackSounds { get; set; } = false;
+
+	SoundHandle UseHandle;
+
+
 	// Referenced by Finding Parent of Items Parent
 	// Used for interfacing with PlayerFacing and PlayerInventory
 	GameObject Player;
@@ -100,6 +114,10 @@ public sealed class UseItem : Component {
 						AnimationApex = AnimHelper.InterpGameObjectToTransform(
 							GameObject, UseOn, UseSpeed
 						);
+
+						if (UseSound != null && AnimationApex) {
+							UseHandle = Sound.Play( UseSound );
+						}
 					} else {
 						AnimationApex = AnimHelper.InterpGameObjectToTransform(
 							GameObject, UseOff, UseSpeed
@@ -116,6 +134,7 @@ public sealed class UseItem : Component {
 						HoldTimer = 0f;
 						AnimationApex = false;
 						Using = !Using;
+						if (!StackSounds && UseHandle != null) { UseHandle.Stop(); }
 					}
 				}
 			} else {
@@ -127,6 +146,8 @@ public sealed class UseItem : Component {
 			AnimationApex = false;
 			HoldTimer = 0f;
 			Idle = AnimHelper.InterpGameObjects( GameObject, GrabTarget, PickupSpeed );
+
+			if (UseHandle != null && !UseHandle.IsStopped) { UseHandle.Stop(); }
 
 			if (Idle) {
 				Armed = false;

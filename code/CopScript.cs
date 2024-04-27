@@ -42,6 +42,8 @@ public sealed class CopScript : Component {
 	/// </summary>
 	[Property] SoundEvent SirenTwo { get; set; }
 
+	SoundHandle HandleOne, HandleTwo;
+
 	// Cop Light colors
 	List<Color> colors = new() {
 		new Color(1f, 0f, 0f),
@@ -49,7 +51,7 @@ public sealed class CopScript : Component {
 	};
 
 	// Whether the Cop Lights are flashing or not
-	bool Flashing = false;
+	public bool Flashing = false;
 
 	// Switches between true and false to create flashing effect
 	bool LightState = true;
@@ -57,7 +59,6 @@ public sealed class CopScript : Component {
 	// Used for alternating siren
 	Random Rnd = new();
 	float SirenTimer = 0, SirenLimit;
-	bool SirenOnePlaying = false;
 
 	float FlashTimer = 0f;
 
@@ -70,6 +71,7 @@ public sealed class CopScript : Component {
 		}
 
 		Flashing = true;
+		HandleOne = Sound.Play( SirenOne );
 	}
 
 	void ResetSiren() {
@@ -77,17 +79,12 @@ public sealed class CopScript : Component {
 
 		if (!Flashing) { return; }
 
-		SirenOnePlaying = !SirenOnePlaying;
-		Sound.StopAll(0f);
-
-		if (SirenOnePlaying && SirenOne != null) {
-			Sound.Play( SirenOne );
-		} else if (SirenTwo != null) {
-			Sound.Play( SirenTwo );
-		}
-
-		if (PlyMove != null && PlyMove.Speed > 0f) {
-			Sound.Play( PlyMove.Gas );
+		if (HandleTwo == null || HandleTwo.IsStopped) {
+			HandleOne.Stop();
+			HandleTwo = Sound.Play( SirenTwo );
+		} else {
+			HandleTwo.Stop();
+			HandleOne = Sound.Play( SirenOne );
 		}
 	}
 

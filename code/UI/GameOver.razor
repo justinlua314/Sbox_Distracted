@@ -32,6 +32,12 @@
 	/// </summary>
 	[Property] BoxCollider Hitbox { get; set; }
 
+
+	/// <summary>
+	/// CopScript is referenced to disable Cops when Game is Over
+	/// </summary>
+	[Property] CopScript Cops { get; set; }
+
 	List<string> Messages = new() {
 		"You died in a crash",
 		"You were arrested by the police",
@@ -62,6 +68,7 @@
 		Sound.StopAll(0f);
 		if (Stats != null) { Stats.Playing = false; }
 		if (Hitbox != null) { Hitbox.Enabled = false; }
+		if (Cops != null) { Cops.Flashing = false; }
 	}
 
 	string GetScore() {

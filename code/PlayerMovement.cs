@@ -63,9 +63,26 @@ public sealed class PlayerMovement : Component {
 	[Property] SoundEvent Idle { get; set; }
 
 
-	// Sound Control
-	float IdleTimer = 0f, AccelerateTimer = 0f;
+	/// <summary>
+	/// The sound that plays when the Player first pulls the Emergency Brake
+	/// </summary>
+	[Property] public SoundEvent EbrakePull { get; set; }
 
+
+	/// <summary>
+	/// The sound that plays when the Emergency Brake is active
+	/// </summary>
+	[Property] SoundEvent EbrakeActive { get; set; }
+
+
+	/// <summary>
+	/// The sound that plays when the Normal Brake is active
+	/// </summary>
+	[Property] SoundEvent BrakeActive { get; set; }
+
+
+	// Sound Control
+	SoundHandle GasHandle, IdleHandle, EbrakeActiveHandle, BrakeActiveHandle;
 
 	// Stats is referenced to control Score while driving
 	PlayerStats Stats;
@@ -116,16 +133,32 @@ public sealed class PlayerMovement : Component {
 
 	void PressBrake() {
 		Speed = Math.Max( Speed - BrakePower, 0f );
+
+		if (BrakeActive != null && Speed > 0f && (BrakeActiveHandle == null || BrakeActiveHandle.IsStopped)) {
+			BrakeActiveHandle = Sound.Play( BrakeActive );
+		}
+
+		if (GasHandle != null && !GasHandle.IsStopped) { GasHandle.Stop(); }
+		if (Idle != null && IdleHandle.IsStopped) { IdleHandle = Sound.Play( Idle ); }
 	}
 
 	protected override void OnFixedUpdate() {
 		if (Stats != null && (Stats.Hearts <= 0 || !Stats.Playing)) { return; }
 
-		// Log.Info( Speed );
 		float speedRatio = Speed / MaxSpeed;
 
 		// Only one movement input at a time is intentional
 		if ( Input.Down( "Jump" ) ) {
+			if (Input.Pressed("Jump") && EbrakePull != null) {
+				Sound.Play(EbrakePull);
+			}
+
+			if (EbrakeActive != null && Speed > 0f && (EbrakeActiveHandle == null || EbrakeActiveHandle.IsStopped)) {
+				EbrakeActiveHandle = Sound.Play(EbrakeActive);
+			}
+
+			EbrakeActiveHandle.Volume = (Speed / MaxSpeed) / 10f;
+
 			Speed = Math.Max( Speed - EmergencyBrakePower, 0f );
 			ABSPunch( Math.Max( speedRatio - 0.2f, 0f ) );
 		} else if ( Input.Down( "Forward" ) ) {
@@ -140,17 +173,12 @@ public sealed class PlayerMovement : Component {
 				Accelerate( speedRatio );
 
 				if (Input.Pressed( "Forward" )) {
-					Sound.StopAll(1f);
-					if (Gas != null) { Sound.Play( Gas ); }
-					IdleTimer = 0f;
+					IdleHandle.Stop();
+					if (Gas != null) { GasHandle = Sound.Play( Gas ); }
 				}
 
-				AccelerateTimer += Time.Delta;
-
-				if (AccelerateTimer >= 6f) {
-					Sound.StopAll( 1f );
-					if (Gas != null) { Sound.Play( Gas ); }
-					AccelerateTimer -= 6f;
+				if (Gas != null && (GasHandle == null || GasHandle.IsStopped)) { 
+					GasHandle = Sound.Play( Gas );
 				}
 			}
 		} else if ( Input.Down( "Backward" ) ) {
@@ -165,21 +193,22 @@ public sealed class PlayerMovement : Component {
 				PressBrake();
 			}
 		} else {
-			if (IdleTimer == 0f) {
+			if (IdleHandle == null || IdleHandle.IsStopped) {
 				PedalSwap = false;
 				PedalPressed = false;
-				AccelerateTimer = 0f;
-				Sound.StopAll( 100f );
-				if (Idle != null) { Sound.Play( Idle ); }
-			}
 
-			IdleTimer += Time.Delta;
-
-			if (IdleTimer >= 6f) {
-				Sound.StopAll( 1f );
-				if (Idle != null) { Sound.Play( Idle ); }
-				IdleTimer -= 6f;
+				if (GasHandle != null) { GasHandle.Stop(); }
+				if (Idle != null) { IdleHandle = Sound.Play( Idle ); }
 			}
+		}
+
+		// Sound Traffic
+		if ((!Input.Down( "Jump" ) || Speed == 0f) && EbrakeActiveHandle != null) {
+			EbrakeActiveHandle.Stop();
+		}
+
+		if ((!Input.Down( "Backward" ) || Speed == 0f) && BrakeActiveHandle != null) {
+			BrakeActiveHandle.Stop();
 		}
 
 		Speed = Math.Max(Speed - Friction, 0f);

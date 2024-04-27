@@ -3,7 +3,13 @@
 @inherits PanelComponent
 
 <root>
-	<div class="score">Score: @(Stats.Score / 10)</div>
+	<div class="score-area">
+		<div class="score">Score: @(Stats.Score / 10)</div>
+		<div class="intox-bar">
+			<div class="intox" style="width: @(Stats.Percent("drinking"))"></div>
+			<div class="intox-label">Intoxication: @(Stats.Percent("drinking"))%</div>
+		</div>
+	</div>
 
 	<div class="stat-area">
 		<div class="stats">

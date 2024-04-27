@@ -73,7 +73,7 @@ public sealed class PlayerStats : Component {
 	public void Nourish(string stat, float amount=1f) {
 		if (!Stats.ContainsKey(stat)) {
 			if (stat == "drinking") {
-				Drunk.Intoxication = Math.Min( Drunk.Intoxication + amount, 100f );
+				Drunk.Intoxication = Math.Min( Drunk.Intoxication + amount, 50f );
 			}
 
 			return;
@@ -87,6 +87,10 @@ public sealed class PlayerStats : Component {
 
 	// Returns what percent that stat is filled
 	public float Percent(string stat) {
+		if (stat == "drinking") {
+			return (float)Math.Round( (double)(Drunk.Intoxication / 10f), 2 ) * 50f;
+		}
+
 		if (Stats.ContainsKey(stat)) {
 			return (float)Math.Round( (double)(Stats[stat] / 100f), 2 ) * 100f;
 		} else {
@@ -137,7 +141,7 @@ public sealed class PlayerStats : Component {
 
 		if (Cops == null) { return; }
 
-		if (!CopsCalled && Score >= 25) {
+		if (!CopsCalled && Score >= 25000) {
 			Cops.StartFlashing();
 			CopsCalled = true;
 		}

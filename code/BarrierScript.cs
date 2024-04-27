@@ -1,4 +1,3 @@
-using Sandbox.Services;
 using System;
 
 public sealed class BarrierScript : Component, Component.ITriggerListener {
