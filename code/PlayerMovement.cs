@@ -51,6 +51,22 @@ public sealed class PlayerMovement : Component {
 	[Property] public float ABSPunchFactor { get; set; } = 1f;
 
 
+	/// <summary>
+	/// The sound that plays when the Player is accelerating
+	/// </summary>
+	[Property] public SoundEvent Gas { get; set; }
+
+
+	/// <summary>
+	/// The sound that plays when the Player is idle
+	/// </summary>
+	[Property] SoundEvent Idle { get; set; }
+
+
+	// Sound Control
+	float IdleTimer = 0f, AccelerateTimer = 0f;
+
+
 	// Stats is referenced to control Score while driving
 	PlayerStats Stats;
 
@@ -122,6 +138,20 @@ public sealed class PlayerMovement : Component {
 				PressBrake();
 			} else {
 				Accelerate( speedRatio );
+
+				if (Input.Pressed( "Forward" )) {
+					Sound.StopAll(1f);
+					if (Gas != null) { Sound.Play( Gas ); }
+					IdleTimer = 0f;
+				}
+
+				AccelerateTimer += Time.Delta;
+
+				if (AccelerateTimer >= 6f) {
+					Sound.StopAll( 1f );
+					if (Gas != null) { Sound.Play( Gas ); }
+					AccelerateTimer -= 6f;
+				}
 			}
 		} else if ( Input.Down( "Backward" ) ) {
 			if (!PedalPressed && Stats.Drunk.Intoxication > 50f) {
@@ -135,8 +165,21 @@ public sealed class PlayerMovement : Component {
 				PressBrake();
 			}
 		} else {
-			PedalSwap = false;
-			PedalPressed = false;
+			if (IdleTimer == 0f) {
+				PedalSwap = false;
+				PedalPressed = false;
+				AccelerateTimer = 0f;
+				Sound.StopAll( 100f );
+				if (Idle != null) { Sound.Play( Idle ); }
+			}
+
+			IdleTimer += Time.Delta;
+
+			if (IdleTimer >= 6f) {
+				Sound.StopAll( 1f );
+				if (Idle != null) { Sound.Play( Idle ); }
+				IdleTimer -= 6f;
+			}
 		}
 
 		Speed = Math.Max(Speed - Friction, 0f);
@@ -148,7 +191,7 @@ public sealed class PlayerMovement : Component {
 		// The RoadGeneration Component creates the illusion of moving forward
 		GameObject.Transform.LocalPosition += Vector3.Left * CalculateTurnMovement() * speedRatio;
 
-		if (Stats != null) {
+		if (Stats != null && Stats.Drunk != null) {
 			// Math hackery
 			int drunkFactor = Math.Max( (int)(Stats.Drunk.Intoxication / 10f), 1 );
 			int earned = ((int)Speed * drunkFactor - 50) / 20;

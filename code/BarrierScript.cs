@@ -31,6 +31,11 @@ public sealed class BarrierScript : Component, Component.ITriggerListener {
 	/// </summary>
 	[Property] float SpeedTax { get; set; } = 50f;
 
+	/// <summary>
+	/// The sound that plays when the Player hits a barrier
+	/// </summary>
+	[Property] SoundEvent Crash { get; set; }
+
 	public void OnTriggerEnter( Collider other ) {
 		if (other.Tags.Has( "player" )) {
 			GameObject target = other.GameObject;
@@ -45,9 +50,8 @@ public sealed class BarrierScript : Component, Component.ITriggerListener {
 				PlyMove.Speed = Math.Max( PlyMove.Speed - SpeedTax, 0f );
 			}
 
-			if (Stats != null) {
-				Stats.HurtPlayer();
-			}
+			if (Stats != null) { Stats.HurtPlayer(); }
+			if (Crash != null) { Sound.Play( Crash ); }
 		}
 	}
 }

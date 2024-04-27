@@ -26,6 +26,12 @@
 	/// </summary>
 	[Property] PlayerStats Stats { get; set; }
 
+
+	/// <summary>
+	/// Player's Box Collider is referenced to Disable collision when Player loses
+	/// </summary>
+	[Property] BoxCollider Hitbox { get; set; }
+
 	List<string> Messages = new() {
 		"You died in a crash",
 		"You were arrested by the police",
@@ -53,7 +59,9 @@
 			ScreenSelected = 0;
 		}
 
-		Stats.Playing = false;
+		Sound.StopAll(0f);
+		if (Stats != null) { Stats.Playing = false; }
+		if (Hitbox != null) { Hitbox.Enabled = false; }
 	}
 
 	string GetScore() {

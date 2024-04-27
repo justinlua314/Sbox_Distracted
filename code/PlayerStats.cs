@@ -118,7 +118,7 @@ public sealed class PlayerStats : Component {
 		float statOffset;
 
 		foreach (string stat in Stats.Keys) {
-			statOffset = (float)Rnd.Next( 1, 60 ) / 10f;
+			statOffset = Rnd.Next( 1, 60 ) / 10f;
 			Stats[stat] = Math.Max( Stats[stat] - (StatDecaySpeed * statOffset), 0f );
 
 			if (Stats[stat] == 0f) {
@@ -137,7 +137,7 @@ public sealed class PlayerStats : Component {
 
 		if (Cops == null) { return; }
 
-		if (!CopsCalled && Score >= 25000) {
+		if (!CopsCalled && Score >= 25) {
 			Cops.StartFlashing();
 			CopsCalled = true;
 		}

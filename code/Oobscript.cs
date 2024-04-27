@@ -4,10 +4,16 @@ public sealed class Oobscript : Component, Component.ITriggerListener {
 	/// </summary>
 	[Property] PlayerStats Stats { get; set; }
 
+	/// <summary>
+	/// The sound that plays when the Player goes outside the map
+	/// </summary>
+	[Property] SoundEvent Crash { get; set; }
+
 	public void OnTriggerEnter(Collider other) {
 		if (other.Tags.Has("player") && Stats != null) {
 			while (Stats.Hearts > 0) {
 				Stats.HurtPlayer();
+				if (Crash != null) { Sound.Play( Crash ); }
 			}
 		}
 	}

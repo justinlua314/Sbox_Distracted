@@ -102,6 +102,7 @@
         {
           "__type": "CarScript",
           "__guid": "4ee8a799-78f5-4d7f-aaf2-79feeee4febb",
+          "Crash": "sounds/crash.sound",
           "Stats": {
             "_type": "component",
             "component_id": "5f8ca7c1-3392-4fa6-9a0e-fafe0c6c4467",
@@ -166,6 +167,8 @@
           "BrakePower": 0.4,
           "EmergencyBrakePower": 1,
           "Friction": 0.05,
+          "Gas": "sounds/engine.sound",
+          "Idle": "sounds/idle.sound",
           "MaxSpeed": 250,
           "TurnPower": 300,
           "TurnSpeed": 0.75
@@ -631,7 +634,11 @@
                 "component_id": "495908fa-6028-464d-8ea3-35833523c3d8",
                 "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
                 "component_type": "PlayerMovement"
-              }
+              },
+              "SirenMaxFrequency": 5,
+              "SirenMinFrequency": 1,
+              "SirenOne": "sounds/siren1.sound",
+              "SirenTwo": "sounds/siren2.sound"
             }
           ],
           "Children": [
@@ -736,6 +743,7 @@
             {
               "__type": "BarrierScript",
               "__guid": "7c54d8f9-9ff7-48eb-9067-b9b3df50f7b3",
+              "Crash": "sounds/crash.sound",
               "PlyMove": {
                 "_type": "component",
                 "component_id": "495908fa-6028-464d-8ea3-35833523c3d8",
@@ -773,6 +781,7 @@
             {
               "__type": "BarrierScript",
               "__guid": "4c1a8138-7dc3-4b49-9e81-6b21b82d7c25",
+              "Crash": "sounds/crash.sound",
               "PlyMove": {
                 "_type": "component",
                 "component_id": "495908fa-6028-464d-8ea3-35833523c3d8",
@@ -810,6 +819,7 @@
             {
               "__type": "Oobscript",
               "__guid": "19c06b97-04e9-4bd3-913b-dfa08d286877",
+              "Crash": "sounds/crash.sound",
               "Stats": {
                 "_type": "component",
                 "component_id": "5f8ca7c1-3392-4fa6-9a0e-fafe0c6c4467",
@@ -838,6 +848,7 @@
             {
               "__type": "Oobscript",
               "__guid": "01135baa-43a2-495b-a156-cdce8cdf8192",
+              "Crash": "sounds/crash.sound",
               "Stats": {
                 "_type": "component",
                 "component_id": "5f8ca7c1-3392-4fa6-9a0e-fafe0c6c4467",
@@ -884,6 +895,12 @@
         {
           "__type": "GameOver",
           "__guid": "f9985689-bc44-4c57-90cd-cacb5d27e617",
+          "Hitbox": {
+            "_type": "component",
+            "component_id": "acc986fa-aab1-43cc-a97e-83b50c995f0f",
+            "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+            "component_type": "BoxCollider"
+          },
           "Leaderboard": {
             "_type": "gameobject",
             "go": "43d76784-590e-45ff-9dde-fca575970671"
@@ -921,7 +938,7 @@
   },
   "Title": "driving",
   "Description": "",
-  "LastSaved": "2024-04-25T19:54:45.6761092-04:00",
+  "LastSaved": "2024-04-26T20:52:25.2337957-04:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
