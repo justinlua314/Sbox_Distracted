@@ -16,6 +16,13 @@ public sealed class PlayerFacing : Component {
 	/// </summary>
 	[Property] PhoneScreen Screen { get; set; }
 
+
+	/// <summary>
+	/// GameObject that is the parent to Item Hints that we want to enable
+	/// when the Player looks at the Items
+	/// </summary>
+	[Property] GameObject ItemHints { get; set; }
+
 	// The Transform that the camera will Interpolate to when looking forward
 	Transform ForwardLook;
 
@@ -27,6 +34,9 @@ public sealed class PlayerFacing : Component {
 
 	// Whether the cameras Look Position should be changed
 	bool ChangingLook = false;
+
+	// If we've shown the Item Hints already
+	bool HintsShown = false;
 	
 
 	protected override void OnStart() {
@@ -51,6 +61,14 @@ public sealed class PlayerFacing : Component {
 			if (settled) {
 				LookingForward = !LookingForward;
 				ChangingLook = false;
+
+				if (!LookingForward && !HintsShown && ItemHints != null) {
+					foreach (GameObject hint in ItemHints.Children) {
+						if (hint != null) {
+							hint.Enabled = true;
+						}
+					}
+				}
 			}
 		}
 

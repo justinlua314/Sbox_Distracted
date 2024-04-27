@@ -1,0 +1,17 @@
+UseHint {
+	justify-content: center;
+	align-items: center;
+	background-color: #333;
+	flex-direction: column;
+
+	.hint-title {
+		font-size: 38px;
+		color: #fff;
+		font-family: Poppins;
+	}
+
+	.hint {
+		width: 100%;
+		height: 80%;
+	}
+}

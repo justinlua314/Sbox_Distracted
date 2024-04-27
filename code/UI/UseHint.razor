@@ -1,0 +1,40 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<div class="hint-title">@HintTitle</div>
+	<svg class="hint" src="ui/glyphs/default/@(GlyphName).svg"></svg>
+</root>
+
+@code {
+	/// <summary>
+	/// Title for the action that we are making this hint for
+	/// </summary>
+	[Property] string HintTitle { get; set; } = "";
+
+
+	/// <summary>
+	/// Name of Input Glyph that hints the input needed for the action
+	/// </summary>
+	[Property] string GlyphName { get; set; } = "f";
+
+
+	/// <summary>
+	/// How many seconds should we show the hint before hiding it
+	/// </summary>
+	[Property] float ShowTime { get; set; } = 5f;
+
+	float ShowTimer = 0f;
+
+	protected override void OnFixedUpdate() {
+		ShowTimer += Time.Delta;
+
+		if (ShowTimer >= ShowTime) { Enabled = false; }
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( "" );
+}
