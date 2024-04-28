@@ -157,7 +157,7 @@ public sealed class PlayerMovement : Component {
 				EbrakeActiveHandle = Sound.Play(EbrakeActive);
 			}
 
-			EbrakeActiveHandle.Volume = (Speed / MaxSpeed) / 10f;
+			if (EbrakeActiveHandle != null) { EbrakeActiveHandle.Volume = (Speed / MaxSpeed) / 10f; }
 
 			Speed = Math.Max( Speed - EmergencyBrakePower, 0f );
 			ABSPunch( Math.Max( speedRatio - 0.2f, 0f ) );
