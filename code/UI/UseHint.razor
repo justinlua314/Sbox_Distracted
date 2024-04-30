@@ -21,6 +21,12 @@
 
 
 	/// <summary>
+	/// If we should start hiding this hint
+	/// </summary>
+	[Property] public bool Hiding { get; set; } = true;
+
+
+	/// <summary>
 	/// How many seconds should we show the hint before hiding it
 	/// </summary>
 	[Property] float ShowTime { get; set; } = 5f;
@@ -28,6 +34,8 @@
 	float ShowTimer = 0f;
 
 	protected override void OnFixedUpdate() {
+		if (!Hiding) { return; }
+
 		ShowTimer += Time.Delta;
 
 		if (ShowTimer >= ShowTime) { Enabled = false; }

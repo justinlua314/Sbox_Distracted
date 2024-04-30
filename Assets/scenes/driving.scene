@@ -744,6 +744,12 @@
               "Position": "0,0,0",
               "Enabled": true,
               "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "HideWhenMoved",
+                  "__guid": "ed665763-1a27-4540-97b9-f7c7dc247863"
+                }
+              ],
               "Children": [
                 {
                   "__guid": "db012ebe-e4eb-4629-be1d-cdeb0cfa23e4",
@@ -767,6 +773,7 @@
                       "__type": "UseHint",
                       "__guid": "62875b98-a3d7-4fe3-b03f-fed279fd494d",
                       "GlyphName": "mouse2",
+                      "Hiding": false,
                       "HintTitle": "Scroll Feed",
                       "ShowTime": 5
                     }
@@ -774,7 +781,7 @@
                 },
                 {
                   "__guid": "b4af25ac-0f3c-4060-8a55-8cea4e8307aa",
-                  "Name": "Phone Use Hint",
+                  "Name": "Facing Hint",
                   "Position": "-1.030553,-19.27604,39.35706",
                   "Rotation": "0,0,0.7071067,0.7071068",
                   "Scale": "0.45,0.25,0.4",
@@ -794,6 +801,7 @@
                       "__type": "UseHint",
                       "__guid": "14182ac0-b7e7-422c-ab4d-206090949cbc",
                       "GlyphName": "f",
+                      "Hiding": false,
                       "HintTitle": "Grab Item",
                       "ShowTime": 7.5
                     }
@@ -821,6 +829,7 @@
                       "__type": "UseHint",
                       "__guid": "c41f0756-c7e9-442f-80a4-8dbb2e206a44",
                       "GlyphName": "w",
+                      "Hiding": false,
                       "HintTitle": "Accelerate",
                       "ShowTime": 5
                     }
@@ -848,6 +857,7 @@
                       "__type": "UseHint",
                       "__guid": "3492035f-3085-4e07-b79b-db40ddca6b7c",
                       "GlyphName": "s",
+                      "Hiding": false,
                       "HintTitle": "Brake",
                       "ShowTime": 5
                     }
@@ -875,6 +885,7 @@
                       "__type": "UseHint",
                       "__guid": "38e52b4a-ae3a-4e8e-a4e4-d9191547b0d0",
                       "GlyphName": "space",
+                      "Hiding": false,
                       "HintTitle": "Emergency Brake",
                       "ShowTime": 5
                     }
@@ -888,6 +899,12 @@
               "Position": "0,0,0",
               "Enabled": true,
               "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "HideWhenMoved",
+                  "__guid": "e14ee4de-7af7-4997-acc7-5ef2a96d0f4e"
+                }
+              ],
               "Children": [
                 {
                   "__guid": "8fe7f64e-d971-4b71-80bf-7eb0ff6a8be6",
@@ -910,6 +927,7 @@
                       "__type": "UseHint",
                       "__guid": "53295560-102f-4751-87e0-6559c5350aa6",
                       "GlyphName": "e",
+                      "Hiding": false,
                       "HintTitle": "Water",
                       "ShowTime": 20
                     }
@@ -936,6 +954,7 @@
                       "__type": "UseHint",
                       "__guid": "139b098a-0170-474e-87f5-e0adcab91068",
                       "GlyphName": "r",
+                      "Hiding": false,
                       "HintTitle": "Vape",
                       "ShowTime": 20
                     }
@@ -962,6 +981,7 @@
                       "__type": "UseHint",
                       "__guid": "09049f40-36ce-444b-bb88-f4d752fef9ae",
                       "GlyphName": "mouse1",
+                      "Hiding": false,
                       "HintTitle": "Burger",
                       "ShowTime": 20
                     }
@@ -987,6 +1007,7 @@
                       "__type": "UseHint",
                       "__guid": "5a741b07-111f-41b4-b002-222375a80b29",
                       "GlyphName": "mouse2",
+                      "Hiding": false,
                       "HintTitle": "Canteen",
                       "ShowTime": 20
                     }
@@ -1013,6 +1034,7 @@
                       "__type": "UseHint",
                       "__guid": "74f04186-2994-4889-8a5f-1a7e18ae97fc",
                       "GlyphName": "f",
+                      "Hiding": false,
                       "HintTitle": "Look at road",
                       "ShowTime": 20
                     }
@@ -1250,7 +1272,7 @@
   },
   "Title": "driving",
   "Description": "",
-  "LastSaved": "2024-04-27T12:50:03.3328351-04:00",
+  "LastSaved": "2024-04-30T06:20:26.4144155-04:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

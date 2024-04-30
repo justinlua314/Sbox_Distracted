@@ -105,7 +105,7 @@ public sealed class UseItem : Component {
 		if (Facing == null || !Facing.LookingForward) { return; }
 		if (Inventory == null || !(Inventory.Holding == GameObject)) { return; }
 
-		if (Input.Down("attack1")) {
+		if (Input.Down( "attack1" )) {
 			Idle = false;
 
 			if (Armed) {
@@ -127,7 +127,7 @@ public sealed class UseItem : Component {
 					HoldTimer += Time.Delta;
 
 					if (Using && Stats != null) {
-						Stats.Nourish(StatEffected, StatStrength);
+						Stats.Nourish( StatEffected, StatStrength );
 					}
 
 					if (HoldTimer >= HoldTime) {
@@ -139,7 +139,7 @@ public sealed class UseItem : Component {
 				}
 			} else {
 				Armed = AnimHelper.InterpGameObjectToTransform(
-					GameObject, UseOff, PickupSpeed	
+					GameObject, UseOff, PickupSpeed
 				);
 			}
 		} else if (!Idle) {
