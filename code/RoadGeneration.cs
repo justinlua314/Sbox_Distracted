@@ -71,6 +71,7 @@ public sealed class RoadGeneration : Component {
 
 		foreach (GameObject segment in GameObject.Children) {
 			segment.Transform.LocalPosition += roadMovement;
+			segment.Transform.ClearInterpolation();
 		}
 
 		if (GameObject.Children[0].Transform.LocalPosition.x <= BehindCamera) {

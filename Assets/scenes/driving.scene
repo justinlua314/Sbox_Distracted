@@ -9,6 +9,7 @@
       "Tags": "light_directional,light,skybox",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
           "__type": "Sandbox.DirectionalLight",
@@ -30,10 +31,11 @@
     {
       "__guid": "ec88e613-f62d-4c19-a9ed-34224e70e196",
       "Name": "Master Road Segment",
-      "Position": "0,0,-200",
+      "Position": "18967.99,0,-200",
       "Rotation": "0,0,0.7071068,0.7071068",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
           "__type": "Sandbox.ModelRenderer",
@@ -50,6 +52,7 @@
       "Name": "Cloned Road Segments",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
           "__type": "RoadGeneration",
@@ -77,11 +80,12 @@
     {
       "__guid": "732d1f74-eb4d-4fdc-b5aa-3c3f68f96cc6",
       "Name": "Master Traffic Car",
-      "Position": "313.2498,-984.3324,-500",
+      "Position": "17432.09,-984.3324,-500",
       "Rotation": "0,0,0.7071067,0.7071068",
       "Tags": "traffic",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
           "__type": "Sandbox.ModelRenderer",
@@ -94,7 +98,7 @@
         {
           "__type": "Sandbox.BoxCollider",
           "__guid": "7e0d2eae-ad01-4327-aa7b-fd8a5b114e32",
-          "Center": "0.4,8.199977,8.499998",
+          "Center": "26.20003,89.39973,38.69999",
           "IsTrigger": true,
           "Scale": "143.0009,303.8015,111.1993",
           "Static": false
@@ -117,6 +121,7 @@
       "Name": "Traffic",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
           "__type": "TrafficController",
@@ -142,6 +147,7 @@
       "Tags": "player",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
           "__type": "Sandbox.ModelRenderer",
@@ -232,6 +238,7 @@
           "Rotation": "0,0,-0.7071068,0.7071068",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
               "__type": "Sandbox.CameraComponent",
@@ -279,6 +286,7 @@
           "Position": "0,0,0",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Children": [
             {
               "__guid": "075534b8-839e-4b6a-9644-92ace98e2fff",
@@ -287,6 +295,7 @@
               "Scale": "2,1.5,1.5",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
@@ -305,6 +314,7 @@
               "Scale": "0.45,0.25,0.4",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
@@ -323,6 +333,7 @@
                   "Rotation": "0,0,0.7071066,0.7071065",
                   "Enabled": true,
                   "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "Sandbox.WorldPanel",
@@ -357,6 +368,7 @@
           "Position": "0,0,0",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Children": [
             {
               "__guid": "44c54b6f-9d12-41c6-922c-42943ed21d08",
@@ -365,6 +377,7 @@
               "Scale": "0.2,0.2,0.4",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
@@ -420,6 +433,7 @@
               "Scale": "0.8,0.8,0.8",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
@@ -475,6 +489,7 @@
               "Scale": "0.05,0.05,0.05",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
@@ -530,6 +545,7 @@
               "Rotation": "0.1830128,-0.1830126,-0.6830128,0.6830124",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "Sandbox.ModelRenderer",
@@ -587,6 +603,7 @@
           "Tags": "anim_targets",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Children": [
             {
               "__guid": "5633442d-0713-4d0e-80e9-ee4ac1e3f91d",
@@ -594,7 +611,8 @@
               "Position": "39.14131,39.05932,21.15752",
               "Tags": "grab_target",
               "Enabled": true,
-              "NetworkMode": 2
+              "NetworkMode": 2,
+              "NetworkInterpolation": true
             }
           ]
         },
@@ -604,6 +622,7 @@
           "Position": "0,0,0",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
               "__type": "Sandbox.ScreenPanel",
@@ -635,6 +654,7 @@
           "Position": "0,0,0",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
               "__type": "CopScript",
@@ -665,6 +685,7 @@
               "Tags": "light_spot,light",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "Sandbox.SpotLight",
@@ -689,6 +710,7 @@
               "Tags": "light_spot,light",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "Sandbox.SpotLight",
@@ -715,6 +737,7 @@
           "Scale": "0.5,0.5,0.5",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
               "__type": "Sandbox.ModelRenderer",
@@ -737,6 +760,7 @@
           "Position": "0,0,0",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Children": [
             {
               "__guid": "ea11ee86-3315-43bc-9322-65e63edc333d",
@@ -744,6 +768,7 @@
               "Position": "0,0,0",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "HideWhenMoved",
@@ -759,6 +784,7 @@
                   "Scale": "0.45,0.25,0.4",
                   "Enabled": true,
                   "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "Sandbox.WorldPanel",
@@ -787,6 +813,7 @@
                   "Scale": "0.45,0.25,0.4",
                   "Enabled": true,
                   "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "Sandbox.WorldPanel",
@@ -815,6 +842,7 @@
                   "Scale": "0.45,0.25,0.4",
                   "Enabled": true,
                   "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "Sandbox.WorldPanel",
@@ -843,6 +871,7 @@
                   "Scale": "0.45,0.25,0.4",
                   "Enabled": true,
                   "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "Sandbox.WorldPanel",
@@ -871,6 +900,7 @@
                   "Scale": "0.45,0.25,0.4",
                   "Enabled": true,
                   "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "Sandbox.WorldPanel",
@@ -899,6 +929,7 @@
               "Position": "0,0,0",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "HideWhenMoved",
@@ -913,6 +944,7 @@
                   "Rotation": "0,0,0.3826834,0.9238795",
                   "Scale": "0.45,0.25,0.4",
                   "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "Sandbox.WorldPanel",
@@ -940,6 +972,7 @@
                   "Rotation": "0,0,0.3826834,0.9238795",
                   "Scale": "0.45,0.25,0.4",
                   "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "Sandbox.WorldPanel",
@@ -967,6 +1000,7 @@
                   "Rotation": "0,0,0.258819,0.9659257",
                   "Scale": "0.45,0.25,0.4",
                   "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "Sandbox.WorldPanel",
@@ -993,6 +1027,7 @@
                   "Position": "-35.76702,29.34872,23.12974",
                   "Scale": "0.45,0.25,0.4",
                   "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "Sandbox.WorldPanel",
@@ -1020,6 +1055,7 @@
                   "Rotation": "0,0,0.1305261,0.9914444",
                   "Scale": "0.45,0.25,0.4",
                   "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "Sandbox.WorldPanel",
@@ -1051,6 +1087,7 @@
       "Name": "Barriers",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Children": [
         {
           "__guid": "e4764540-483f-49d1-8b54-28231b162b43",
@@ -1059,6 +1096,7 @@
           "Rotation": "-0.7071067,0,0,0.7071068",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
               "__type": "Sandbox.PlaneCollider",
@@ -1097,6 +1135,7 @@
           "Rotation": "-0.0000001192093,-0.7071067,0.7071068,0.0000001192093",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
               "__type": "Sandbox.PlaneCollider",
@@ -1135,6 +1174,7 @@
           "Rotation": "-0.7071067,0,0,0.7071068",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
               "__type": "Sandbox.PlaneCollider",
@@ -1164,6 +1204,7 @@
           "Rotation": "-0.0000001376788,0.7071067,-0.7071068,0.0000001376788",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
               "__type": "Sandbox.PlaneCollider",
@@ -1192,6 +1233,7 @@
       "__guid": "43d76784-590e-45ff-9dde-fca575970671",
       "Name": "Leaderboard",
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
           "__type": "Sandbox.ScreenPanel",
@@ -1211,6 +1253,7 @@
       "__guid": "849a3acd-c4e5-4ed1-9c56-c3e39611a292",
       "Name": "Game Over Screen",
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
           "__type": "Sandbox.ScreenPanel",
@@ -1251,9 +1294,9 @@
   ],
   "SceneProperties": {
     "FixedUpdateFrequency": 50,
-    "Lerping": true,
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,
@@ -1272,7 +1315,7 @@
   },
   "Title": "driving",
   "Description": "",
-  "LastSaved": "2024-04-30T06:20:26.4144155-04:00",
+  "LastSaved": "2024-05-08T06:24:59.6229131-04:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
