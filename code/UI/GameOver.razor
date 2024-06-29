@@ -34,6 +34,12 @@
 
 
 	/// <summary>
+	/// Player's Hud is referenced to disable when game over is activated
+	/// </summary>
+	[Property] PlayerHud Hud { get; set;  }
+
+
+	/// <summary>
 	/// CopScript is referenced to disable Cops when Game is Over
 	/// </summary>
 	[Property] CopScript Cops { get; set; }
@@ -71,6 +77,7 @@
 		if (Stats != null) { Stats.Playing = false; }
 		if (Hitbox != null) { Hitbox.Enabled = false; }
 		if (Cops != null) { Cops.Flashing = false; }
+		if (Hud != null) { Hud.Enabled = false; }
 	}
 
 	string GetScore() {

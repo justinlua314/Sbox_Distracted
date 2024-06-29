@@ -3,6 +3,7 @@
   "GameObjects": [
     {
       "__guid": "ca69a2d3-eee9-4696-a7c9-fd1845933f55",
+      "Flags": 0,
       "Name": "Sun",
       "Position": "0,0,302.2996",
       "Rotation": "-0.2459842,0.5938582,0.2931525,0.7077327",
@@ -30,6 +31,7 @@
     },
     {
       "__guid": "ec88e613-f62d-4c19-a9ed-34224e70e196",
+      "Flags": 0,
       "Name": "Master Road Segment",
       "Position": "18967.99,0,-200",
       "Rotation": "0,0,0.7071068,0.7071068",
@@ -49,6 +51,7 @@
     },
     {
       "__guid": "120f2e11-3d84-463f-8830-ac7e05e42d77",
+      "Flags": 0,
       "Name": "Cloned Road Segments",
       "Enabled": true,
       "NetworkMode": 2,
@@ -79,6 +82,7 @@
     },
     {
       "__guid": "732d1f74-eb4d-4fdc-b5aa-3c3f68f96cc6",
+      "Flags": 0,
       "Name": "Master Traffic Car",
       "Position": "17432.09,-984.3324,-500",
       "Rotation": "0,0,0.7071067,0.7071068",
@@ -118,6 +122,7 @@
     },
     {
       "__guid": "68323029-6bf5-4437-95ce-5ed023358257",
+      "Flags": 0,
       "Name": "Traffic",
       "Enabled": true,
       "NetworkMode": 2,
@@ -141,6 +146,7 @@
     },
     {
       "__guid": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
+      "Flags": 0,
       "Name": "Player",
       "Position": "0,0,50",
       "Rotation": "0,0,0.7071069,0.707107",
@@ -198,6 +204,11 @@
           },
           "SideLook": {
             "UniformScale": 1,
+            "IsValid": true,
+            "ForwardRay": {
+              "Position": "33.699,32.603,38.33",
+              "Forward": "-0.8365164,-0.4829631,-0.258819"
+            },
             "Position": "33.699,32.603,38.33",
             "Scale": "1,1,1",
             "Rotation": "0.1260786,0.03378267,-0.9576622,0.2566049"
@@ -233,6 +244,7 @@
       "Children": [
         {
           "__guid": "d0b16eae-cb3a-42df-94e2-35872af44307",
+          "Flags": 0,
           "Name": "Main Camera",
           "Position": "33.69874,32.60275,38.33033",
           "Rotation": "0,0,-0.7071068,0.7071068",
@@ -263,6 +275,11 @@
               "LookSpeed": 4,
               "SideLook": {
                 "UniformScale": 1,
+                "IsValid": true,
+                "ForwardRay": {
+                  "Position": "33.699,32.603,38.33",
+                  "Forward": "-0.8365164,-0.4829631,-0.258819"
+                },
                 "Position": "33.699,32.603,38.33",
                 "Scale": "1,1,1",
                 "Rotation": "0.1260786,0.03378267,-0.9576622,0.2566049"
@@ -282,6 +299,7 @@
         },
         {
           "__guid": "6b118720-a102-43ea-92e1-26f1473f42e8",
+          "Flags": 0,
           "Name": "Phone",
           "Position": "0,0,0",
           "Enabled": true,
@@ -290,6 +308,7 @@
           "Children": [
             {
               "__guid": "075534b8-839e-4b6a-9644-92ace98e2fff",
+              "Flags": 0,
               "Name": "Holder",
               "Position": "13.08502,-35.10497,26.76087",
               "Scale": "2,1.5,1.5",
@@ -309,6 +328,7 @@
             },
             {
               "__guid": "14afbc0e-f40b-46e9-a0dc-d73c3218b934",
+              "Flags": 0,
               "Name": "Phone",
               "Position": "13.20765,-19.07502,36.14749",
               "Scale": "0.45,0.25,0.4",
@@ -328,6 +348,7 @@
               "Children": [
                 {
                   "__guid": "a496154a-2a8a-4fac-9002-5f95b3a1f8eb",
+                  "Flags": 0,
                   "Name": "Phone Screen",
                   "Position": "-0.0009319197,3.92066,0",
                   "Rotation": "0,0,0.7071066,0.7071065",
@@ -339,6 +360,7 @@
                       "__type": "Sandbox.WorldPanel",
                       "__guid": "c3e977c7-8ac4-40cd-9942-7f89202abb1b",
                       "HorizontalAlign": "Center",
+                      "InteractionRange": 1000,
                       "LookAtCamera": false,
                       "PanelSize": "525.2971,560",
                       "RenderScale": 1,
@@ -364,6 +386,7 @@
         },
         {
           "__guid": "de0872e6-a03f-40d9-89d5-40920b41ffd9",
+          "Flags": 0,
           "Name": "Items",
           "Position": "0,0,0",
           "Enabled": true,
@@ -372,6 +395,7 @@
           "Children": [
             {
               "__guid": "44c54b6f-9d12-41c6-922c-42943ed21d08",
+              "Flags": 0,
               "Name": "Vape",
               "Position": "-6.16786,-20.28135,6.112408",
               "Scale": "0.2,0.2,0.4",
@@ -411,12 +435,22 @@
                   "StatStrength": 0.5,
                   "UseOff": {
                     "UniformScale": 1,
+                    "IsValid": true,
+                    "ForwardRay": {
+                      "Position": "29.366,-1.763,23.735",
+                      "Forward": "1,0,0"
+                    },
                     "Position": "29.366,-1.763,23.735",
                     "Scale": "1,1,1",
                     "Rotation": "0,0,0,1"
                   },
                   "UseOn": {
                     "UniformScale": 1,
+                    "IsValid": true,
+                    "ForwardRay": {
+                      "Position": "33.422,12.782,31.202",
+                      "Forward": "1,0,0"
+                    },
                     "Position": "33.422,12.782,31.202",
                     "Scale": "1,1,1",
                     "Rotation": "-0.6896385,0,0,0.7241538"
@@ -428,6 +462,7 @@
             },
             {
               "__guid": "fd25d789-cd07-4926-bce6-dd547ce12cf5",
+              "Flags": 0,
               "Name": "Water",
               "Position": "8.242465,-19.93484,3.724537",
               "Scale": "0.8,0.8,0.8",
@@ -467,12 +502,22 @@
                   "StatStrength": 0.25,
                   "UseOff": {
                     "UniformScale": 1,
+                    "IsValid": true,
+                    "ForwardRay": {
+                      "Position": "28.393,-1.478,13.792",
+                      "Forward": "1,0,0"
+                    },
                     "Position": "28.393,-1.478,13.792",
                     "Scale": "1,1,1",
                     "Rotation": "0,0,0,1"
                   },
                   "UseOn": {
                     "UniformScale": 1,
+                    "IsValid": true,
+                    "ForwardRay": {
+                      "Position": "35.183,7.314,34.105",
+                      "Forward": "1,0,-0"
+                    },
                     "Position": "35.183,7.314,34.105",
                     "Scale": "1,1,1",
                     "Rotation": "-0.7933533,0,0,0.6087614"
@@ -484,6 +529,7 @@
             },
             {
               "__guid": "f9d30cf4-dddb-4bd2-91ad-6284190161c9",
+              "Flags": 0,
               "Name": "Burger",
               "Position": "-20.36406,10.45931,0.4099274",
               "Scale": "0.05,0.05,0.05",
@@ -523,12 +569,22 @@
                   "StatStrength": 0.5,
                   "UseOff": {
                     "UniformScale": 1,
+                    "IsValid": true,
+                    "ForwardRay": {
+                      "Position": "34.178,16.891,29.038",
+                      "Forward": "1,0,0"
+                    },
                     "Position": "34.178,16.891,29.038",
                     "Scale": "1,1,1",
                     "Rotation": "0,0,0,1"
                   },
                   "UseOn": {
                     "UniformScale": 1,
+                    "IsValid": true,
+                    "ForwardRay": {
+                      "Position": "34.178,16.891,32.527",
+                      "Forward": "1,0,0"
+                    },
                     "Position": "34.178,16.891,32.527",
                     "Scale": "1,1,1",
                     "Rotation": "0,0,0,1"
@@ -540,6 +596,7 @@
             },
             {
               "__guid": "9a704ee3-bd91-47c0-8f3d-af53a043db0b",
+              "Flags": 0,
               "Name": "Canteen",
               "Position": "-59.12122,27.34291,3.712936",
               "Rotation": "0.1830128,-0.1830126,-0.6830128,0.6830124",
@@ -579,12 +636,22 @@
                   "StatStrength": 0.1,
                   "UseOff": {
                     "UniformScale": 1,
+                    "IsValid": true,
+                    "ForwardRay": {
+                      "Position": "26.676,1.757,24.657",
+                      "Forward": "1,0,0"
+                    },
                     "Position": "26.676,1.757,24.657",
                     "Scale": "1,1,1",
                     "Rotation": "0,0,0,1"
                   },
                   "UseOn": {
                     "UniformScale": 1,
+                    "IsValid": true,
+                    "ForwardRay": {
+                      "Position": "34.639,14.219,35.251",
+                      "Forward": "1,0,0"
+                    },
                     "Position": "34.639,14.219,35.251",
                     "Scale": "1,1,1",
                     "Rotation": "-0.8660254,-0,0,0.5"
@@ -598,6 +665,7 @@
         },
         {
           "__guid": "80ee1ce5-e69d-4b60-8af3-d0e213503420",
+          "Flags": 0,
           "Name": "AnimTargets",
           "Position": "0,0,0",
           "Tags": "anim_targets",
@@ -607,6 +675,7 @@
           "Children": [
             {
               "__guid": "5633442d-0713-4d0e-80e9-ee4ac1e3f91d",
+              "Flags": 0,
               "Name": "GrabTarget",
               "Position": "39.14131,39.05932,21.15752",
               "Tags": "grab_target",
@@ -618,6 +687,7 @@
         },
         {
           "__guid": "8f3e41ee-e9ca-4557-93a2-125dbe31e4c5",
+          "Flags": 0,
           "Name": "Hud",
           "Position": "0,0,0",
           "Enabled": true,
@@ -650,6 +720,7 @@
         },
         {
           "__guid": "b8185f83-4519-448d-8e65-f264c185843b",
+          "Flags": 0,
           "Name": "Cop Lights",
           "Position": "0,0,0",
           "Enabled": true,
@@ -679,6 +750,7 @@
           "Children": [
             {
               "__guid": "679fafe0-68ba-480a-a2a1-c37e84d0aae3",
+              "Flags": 0,
               "Name": "Light Right",
               "Position": "-62.53471,61.36951,44.64343",
               "Rotation": "0,0,-0.258819,0.9659257",
@@ -704,6 +776,7 @@
             },
             {
               "__guid": "156d9ca1-1aa0-490d-905b-7ef7c8ddd811",
+              "Flags": 0,
               "Name": "Light Left",
               "Position": "56.14455,61.3695,44.64343",
               "Rotation": "0,0,-0.8660252,0.5",
@@ -731,6 +804,7 @@
         },
         {
           "__guid": "d268470a-6c89-4019-b14c-0c863f2d2f97",
+          "Flags": 0,
           "Name": "Steering Wheel",
           "Position": "34.65696,0.6629294,25.89914",
           "Rotation": "-0.697573,0.1157238,0.1157238,0.6975729",
@@ -756,6 +830,7 @@
         },
         {
           "__guid": "0af656a2-da75-444e-8acf-88531c314bdc",
+          "Flags": 0,
           "Name": "Hints",
           "Position": "0,0,0",
           "Enabled": true,
@@ -764,6 +839,7 @@
           "Children": [
             {
               "__guid": "ea11ee86-3315-43bc-9322-65e63edc333d",
+              "Flags": 0,
               "Name": "Normal Hints",
               "Position": "0,0,0",
               "Enabled": true,
@@ -778,6 +854,7 @@
               "Children": [
                 {
                   "__guid": "db012ebe-e4eb-4629-be1d-cdeb0cfa23e4",
+                  "Flags": 0,
                   "Name": "Phone Use Hint",
                   "Position": "13.22206,-19.27606,47.27378",
                   "Rotation": "0,0,0.7071067,0.7071068",
@@ -790,6 +867,7 @@
                       "__type": "Sandbox.WorldPanel",
                       "__guid": "ed0336db-c45f-4059-a926-239d14ac3756",
                       "HorizontalAlign": "Center",
+                      "InteractionRange": 1000,
                       "LookAtCamera": false,
                       "PanelSize": "512,512",
                       "RenderScale": 1,
@@ -807,6 +885,7 @@
                 },
                 {
                   "__guid": "b4af25ac-0f3c-4060-8a55-8cea4e8307aa",
+                  "Flags": 0,
                   "Name": "Facing Hint",
                   "Position": "-1.030553,-19.27604,39.35706",
                   "Rotation": "0,0,0.7071067,0.7071068",
@@ -819,6 +898,7 @@
                       "__type": "Sandbox.WorldPanel",
                       "__guid": "3430ae2c-e335-49a1-a4c8-143218eded63",
                       "HorizontalAlign": "Center",
+                      "InteractionRange": 1000,
                       "LookAtCamera": false,
                       "PanelSize": "512,512",
                       "RenderScale": 1,
@@ -836,6 +916,7 @@
                 },
                 {
                   "__guid": "3a4bc31a-1651-4aac-82f5-55176884d0df",
+                  "Flags": 0,
                   "Name": "Accelerate Hint",
                   "Position": "50.74914,-19.2759,37.20864",
                   "Rotation": "0,0,0.7071067,0.7071068",
@@ -848,6 +929,7 @@
                       "__type": "Sandbox.WorldPanel",
                       "__guid": "4c112139-4384-49ff-9203-fd6adbf6594d",
                       "HorizontalAlign": "Center",
+                      "InteractionRange": 1000,
                       "LookAtCamera": false,
                       "PanelSize": "512,512",
                       "RenderScale": 1,
@@ -865,6 +947,7 @@
                 },
                 {
                   "__guid": "5e0b0d5d-cceb-4e9e-82ff-ae1652b5a1c9",
+                  "Flags": 0,
                   "Name": "Brake Hint",
                   "Position": "39.0204,-10.36761,37.20864",
                   "Rotation": "0,0,0.7071067,0.7071068",
@@ -877,6 +960,7 @@
                       "__type": "Sandbox.WorldPanel",
                       "__guid": "df601ca7-e624-4113-90c0-954b184dc94b",
                       "HorizontalAlign": "Center",
+                      "InteractionRange": 1000,
                       "LookAtCamera": false,
                       "PanelSize": "512,512",
                       "RenderScale": 1,
@@ -894,6 +978,7 @@
                 },
                 {
                   "__guid": "a87fefc3-203a-4370-9338-fea95b324237",
+                  "Flags": 0,
                   "Name": "EBrake Hint",
                   "Position": "28.41262,-21.979,37.20864",
                   "Rotation": "0,0,0.7071067,0.7071068",
@@ -906,6 +991,7 @@
                       "__type": "Sandbox.WorldPanel",
                       "__guid": "5dd50e0d-11d0-4cb4-81b2-af02c9f69951",
                       "HorizontalAlign": "Center",
+                      "InteractionRange": 1000,
                       "LookAtCamera": false,
                       "PanelSize": "962.7009,595.6996",
                       "RenderScale": 1,
@@ -925,6 +1011,7 @@
             },
             {
               "__guid": "86d3c83d-e026-4b38-a8a6-f1256e6cd302",
+              "Flags": 0,
               "Name": "Item Hints",
               "Position": "0,0,0",
               "Enabled": true,
@@ -939,6 +1026,7 @@
               "Children": [
                 {
                   "__guid": "8fe7f64e-d971-4b71-80bf-7eb0ff6a8be6",
+                  "Flags": 0,
                   "Name": "Water Hint",
                   "Position": "1.765034,-10.68203,19.0759",
                   "Rotation": "0,0,0.3826834,0.9238795",
@@ -950,6 +1038,7 @@
                       "__type": "Sandbox.WorldPanel",
                       "__guid": "c02e2edb-bc1b-463e-a589-0000d0ce8842",
                       "HorizontalAlign": "Center",
+                      "InteractionRange": 1000,
                       "LookAtCamera": false,
                       "PanelSize": "962.7009,595.6996",
                       "RenderScale": 1,
@@ -967,6 +1056,7 @@
                 },
                 {
                   "__guid": "d7ba8024-3a55-45f4-b556-e231e362a751",
+                  "Flags": 0,
                   "Name": "Vape Hint",
                   "Position": "-10.39878,-6.656938,19.0759",
                   "Rotation": "0,0,0.3826834,0.9238795",
@@ -978,6 +1068,7 @@
                       "__type": "Sandbox.WorldPanel",
                       "__guid": "7099107d-f8ad-495f-bec5-261cd654442c",
                       "HorizontalAlign": "Center",
+                      "InteractionRange": 1000,
                       "LookAtCamera": false,
                       "PanelSize": "962.7009,595.6996",
                       "RenderScale": 1,
@@ -995,6 +1086,7 @@
                 },
                 {
                   "__guid": "f4abdeab-d5f9-4450-b383-a88bcace151f",
+                  "Flags": 0,
                   "Name": "Burger Hint",
                   "Position": "-18.39038,15.75671,19.0759",
                   "Rotation": "0,0,0.258819,0.9659257",
@@ -1006,6 +1098,7 @@
                       "__type": "Sandbox.WorldPanel",
                       "__guid": "8523ff7e-982e-49da-8310-ba1a2800b96d",
                       "HorizontalAlign": "Center",
+                      "InteractionRange": 1000,
                       "LookAtCamera": false,
                       "PanelSize": "962.7009,595.6996",
                       "RenderScale": 1,
@@ -1023,6 +1116,7 @@
                 },
                 {
                   "__guid": "4995b8b7-3fff-4d11-b690-43ea1eca4159",
+                  "Flags": 0,
                   "Name": "Canteen Hint",
                   "Position": "-35.76702,29.34872,23.12974",
                   "Scale": "0.45,0.25,0.4",
@@ -1033,6 +1127,7 @@
                       "__type": "Sandbox.WorldPanel",
                       "__guid": "d3288d56-43d1-46f6-8d1e-ae506fafca7a",
                       "HorizontalAlign": "Center",
+                      "InteractionRange": 1000,
                       "LookAtCamera": false,
                       "PanelSize": "962.7009,595.6996",
                       "RenderScale": 1,
@@ -1050,6 +1145,7 @@
                 },
                 {
                   "__guid": "8d5014b0-2ab6-425e-84d2-7cb50502ea14",
+                  "Flags": 0,
                   "Name": "Look Hint",
                   "Position": "-35.76706,3.902418,33.91231",
                   "Rotation": "0,0,0.1305261,0.9914444",
@@ -1061,6 +1157,7 @@
                       "__type": "Sandbox.WorldPanel",
                       "__guid": "0ac2f35b-fffd-44d7-bb4b-b00d57de6555",
                       "HorizontalAlign": "Center",
+                      "InteractionRange": 1000,
                       "LookAtCamera": false,
                       "PanelSize": "962.7009,595.6996",
                       "RenderScale": 1,
@@ -1084,6 +1181,7 @@
     },
     {
       "__guid": "5474a8ce-1749-441c-88a8-0a6581561e09",
+      "Flags": 0,
       "Name": "Barriers",
       "Enabled": true,
       "NetworkMode": 2,
@@ -1091,6 +1189,7 @@
       "Children": [
         {
           "__guid": "e4764540-483f-49d1-8b54-28231b162b43",
+          "Flags": 0,
           "Name": "Right Barrier",
           "Position": "0,-513,106.34",
           "Rotation": "-0.7071067,0,0,0.7071068",
@@ -1130,6 +1229,7 @@
         },
         {
           "__guid": "c7bbc509-c8c3-4356-ba5f-424bb173a130",
+          "Flags": 0,
           "Name": "Left Barrier",
           "Position": "0,1020.17,106.34",
           "Rotation": "-0.0000001192093,-0.7071067,0.7071068,0.0000001192093",
@@ -1169,6 +1269,7 @@
         },
         {
           "__guid": "c187af12-2c88-421b-9749-22b1292c212d",
+          "Flags": 0,
           "Name": "OOBRight",
           "Position": "0,-698.6916,106.34",
           "Rotation": "-0.7071067,0,0,0.7071068",
@@ -1199,6 +1300,7 @@
         },
         {
           "__guid": "5e35738a-4bea-4cbd-a3d0-4dac3f6b36c5",
+          "Flags": 0,
           "Name": "OOBLeft",
           "Position": "0,1132.251,106.34",
           "Rotation": "-0.0000001376788,0.7071067,-0.7071068,0.0000001376788",
@@ -1231,6 +1333,7 @@
     },
     {
       "__guid": "43d76784-590e-45ff-9dde-fca575970671",
+      "Flags": 0,
       "Name": "Leaderboard",
       "NetworkMode": 2,
       "NetworkInterpolation": true,
@@ -1251,6 +1354,7 @@
     },
     {
       "__guid": "849a3acd-c4e5-4ed1-9c56-c3e39611a292",
+      "Flags": 0,
       "Name": "Game Over Screen",
       "NetworkMode": 2,
       "NetworkInterpolation": true,
@@ -1277,6 +1381,12 @@
             "component_id": "acc986fa-aab1-43cc-a97e-83b50c995f0f",
             "go": "21ebdaa6-9b69-4ec5-9f48-ac7929b9e5b3",
             "component_type": "BoxCollider"
+          },
+          "Hud": {
+            "_type": "component",
+            "component_id": "e99be792-f10d-4a49-a4f5-28f742cbeba4",
+            "go": "8f3e41ee-e9ca-4557-93a2-125dbe31e4c5",
+            "component_type": "PlayerHud"
           },
           "Leaderboard": {
             "_type": "gameobject",
@@ -1315,10 +1425,10 @@
   },
   "Title": "driving",
   "Description": "",
-  "LastSaved": "2024-05-08T06:24:59.6229131-04:00",
+  "LastSaved": "2024-06-29T14:08:54.1957544-04:00",
   "ResourceVersion": 1,
-  "__version": 1,
   "__references": [
     "semxy.bluecloudskybox"
-  ]
+  ],
+  "__version": 1
 }
